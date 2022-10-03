@@ -56,7 +56,7 @@ const kproducts=[
     {
         name: "Kids’ Denali™ Jacket",
         price: "$109.00",
-        image:"images/kits/denali/cameo.JPG",
+        image:"images/kids/denali/cameo.JPG",
         content:"Even the tiniest explorers should have iconic Denali™ Jacket style.",
         colors: ["taupe.JPG", "cameo.JPG"]
     },
@@ -64,7 +64,7 @@ const kproducts=[
     {
         name: "Kids’ ThermoBal™ Hooded Jacket",
         price: "$99.00",
-        image:"images/kits/thermoball/black.JPG",
+        image:"images/kids/thermoball/black.JPG",
         content:"This versatile jacket can be worn as a winter mid-layer or as a stand-alone jacket all year long.",
         colors: ["black.JPG", "lavender.JPG"]
     },
@@ -72,7 +72,7 @@ const kproducts=[
     {
         name: "Kids’ Reversible Full-Zip Jacket",
         price: "$89.00",
-        image:"images/kits/reversible/taupe.JPG",
+        image:"images/kids/reversible/taupe.JPG",
         content:"The water-repellent hoodie pairs city style with expedition-tested features and an insulated hood.",
         colors: ["taupe.JPG", "blue.JPG"]
     },
