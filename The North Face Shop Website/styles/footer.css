@@ -1,0 +1,121 @@
+#footer
+{
+	border-top: 1px solid white;
+	height: 500px;
+	margin-top: 500px;
+	display: flex;
+  	justify-content: center;
+}
+
+#store_locator
+{
+	width: 18%;
+	float: left;
+	margin-right: 150px;
+}
+
+#follow_tnf
+{
+	width: 18%;
+	float: left;
+	text-align: center;
+}
+
+#follow_tnf_btns
+{
+	margin-left: 50px;
+}
+
+.ftnf_btn
+{
+	float: left;
+	width: 35px;
+	height: 35px;
+	margin-right: 10px;
+	border: none;
+	background-color: rgb(100, 97, 97);
+}
+
+.ftnf_btn:hover
+{
+	border: 1px solid black;
+	cursor: pointer;
+}
+#email
+{
+	width: 18%;
+	float: left;
+	margin-left: 150px;
+}
+
+#Rarrow
+{
+	margin-top: 5px;
+	margin-left: 5px;
+	width: 50px;
+	height: 40px;
+	background-color: black;
+}
+
+#Rarrow:hover
+{
+	cursor: pointer;
+	border: 1px solid white;
+}
+
+#arrow
+{
+	width: 10px;
+	height: 10px;
+	border-left: 1px solid white;
+	border-bottom: 1px solid white;
+	transform: translate(8px) rotate(225deg) ;
+}
+
+#checked
+{
+	width: 25px;
+	height: 25px;
+}
+
+#checked:hover
+{
+	cursor: pointer;
+	border: 1px solid black;
+}
+
+#bird
+{
+	width: 5px;
+	height: 15px;
+	transform: translate(2px ,-2px) rotate(45deg) ;
+	border-right: 3px solid green;
+	border-bottom: 3px solid green;
+	display: none;
+}
+
+#email_input
+{
+	background-color:rgba(38,40,46,255); 
+	height: 15px; 
+	width:130px;
+	border: none;
+	color: #b4b9c9;
+	margin-bottom: 20px;
+}
+
+#email_input:focus
+{
+	outline: none;
+}
+
+pf
+{
+	font-size: 12px;
+}
+
+h3
+{
+	font-size: 20px;
+	font-weight: 500;
+}

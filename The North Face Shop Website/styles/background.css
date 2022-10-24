@@ -1,0 +1,32 @@
+.back_video
+{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -1;
+	width: 100%;
+	opacity: 30%;
+}
+
+.back_video_2
+{
+	
+	position: absolute;
+	top:1000px;
+	left:0;
+	width: 100%;
+	z-index: -1;
+	opacity: 30%;
+	transform: rotate(180deg) scaleX(-1);
+	
+}
+
+.back_video_3
+{
+	position: absolute;
+	left: 0;
+	top:2012px;
+	width: 100%;
+	opacity: 30%;
+	z-index: -1;
+}

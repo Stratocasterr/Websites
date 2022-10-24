@@ -56,7 +56,7 @@ const kproducts=[
     {
         name: "Kids’ Denali™ Jacket",
         price: "$109.00",
-        image:"images/kits/denali/cameo.JPG",
+        image:"images/kids/denali/cameo.JPG",
         content:"Even the tiniest explorers should have iconic Denali™ Jacket style.",
         colors: ["taupe.JPG", "cameo.JPG"]
     },
@@ -64,7 +64,7 @@ const kproducts=[
     {
         name: "Kids’ ThermoBal™ Hooded Jacket",
         price: "$99.00",
-        image:"images/kits/thermoball/black.JPG",
+        image:"images/kids/thermoball/black.JPG",
         content:"This versatile jacket can be worn as a winter mid-layer or as a stand-alone jacket all year long.",
         colors: ["black.JPG", "lavender.JPG"]
     },
@@ -72,7 +72,7 @@ const kproducts=[
     {
         name: "Kids’ Reversible Full-Zip Jacket",
         price: "$89.00",
-        image:"images/kits/reversible/taupe.JPG",
+        image:"images/kids/reversible/taupe.JPG",
         content:"The water-repellent hoodie pairs city style with expedition-tested features and an insulated hood.",
         colors: ["taupe.JPG", "blue.JPG"]
     },
@@ -221,3 +221,176 @@ function reload(product)
 window.onload = reload(wproducts[0])
 
 
+
+/*                              COMMENTS                                   */
+
+
+
+const comment_adder = document.querySelector('#comment_adder')
+const write_com_btn = document.querySelector('#write_comment_btn')
+const all_comments_html = document.querySelector('#all_comments')
+
+var all_comments = []
+//memory_comments = window.localStorage.getItem('storaged_all_comments')
+//if(memory_comments) all_comments = memory_comments
+
+
+const add_com_btn = document.querySelector('#add_comment_btn')
+const user_name = comment_adder.querySelector('#username')
+const user_img = comment_adder.querySelector('#user_img')
+
+const com_header_input = document.getElementById('comment_h_input')
+const com_text_input = document.getElementById('comment_text_input')
+const com_score_input = document.getElementById('stars')
+
+var actual_user = 
+{
+    username: "messi420",
+    profile_img : "images/users/img1.jpg"
+}
+
+write_com_btn.addEventListener("click", () =>{com_adding()})
+
+
+
+function com_adding()
+{
+    $(comment_adder).css('visibility','visible')
+    $(comment_adder).css('position','static')
+    $(write_com_btn).css('visibility','hidden')
+    $(add_com_btn).css('visibility','visible')
+    user_img.src = actual_user.profile_img
+    user_name.textContent = actual_user.username
+}
+
+add_com_btn.addEventListener("click", () =>
+{
+    var header_value = com_header_input.value
+    var text_value = com_text_input.value
+
+    com_header_input.value = ""
+    com_text_input.value = ""
+    //var score_value = com_score_input.value
+
+    if(header_value && text_value)
+    {
+        var new_com = 
+        {
+            header: header_value,
+            comment_text: text_value,
+            score: 4,
+            id: Math.floor(Math.random() * 10000)
+        }
+
+        $(comment_adder).css('visibility','hidden')
+        $(comment_adder).css('position','absolute')
+        $(write_com_btn).css('visibility','visible')
+        $(add_com_btn).css('visibility','hidden')
+        all_comments.push(new_com)
+        //window.localStorage.setItem("storaged_all_comments", all_comments)
+        add_thml_items()
+    }
+
+    else if(!header_value)
+    {   
+        pop_info_window("noheader")
+    }
+
+    else if(!text_value)
+    {
+        pop_info_window("notext")
+    }
+
+    else if(!text_value)
+    {
+        pop_info_window("nostars")
+    }
+    console.log(all_comments)
+})
+
+
+function pop_info_window(message)
+{
+    const info_window = document.getElementById('info_window')
+    if(message == "noheader")
+    {
+        info_window.innerHTML = "No comment header"
+        $('#info_window').css('background-color','red')
+    }
+
+    else if (message =="notext")
+    {
+        info_window.innerHTML = "No comment content"
+        $('#info_window').css('background-color','red')
+    }
+
+    else if (message =="nostars")
+    {
+        info_window.innerHTML = "No score"
+        $('#info_window').css('background-color','red')
+    }
+
+    else if (message =="comadded")
+    {
+        info_window.innerHTML = "Comment successfully added"
+        $('#info_window').css('background-color','greenyellow')
+    }
+
+    else if (message =="comdeleted")
+    {
+        info_window.innerHTML = "Comment succesfully removed!"
+        $('#info_window').css('background-color','red')
+    }
+    setTimeout(function(){info_window.innerHTML = ""}, 2000)
+}
+
+function add_thml_items()
+{
+    var html_item = ''
+    all_comments.forEach((com) => 
+    {
+        html_item += 
+            `
+                <div id = "comment`+ com.id +`" class = "comments">
+                    <div id="userinfo">
+				        <img id="user_img" src="`+ actual_user.profile_img +`"/>
+				        </br>
+				        <h id="username">`+ actual_user.username +`</h>
+                    </div>
+
+                   <div id = "comment_content">
+                        <div id = "header_stars">
+                            <h id = "comment_header">`+ com.header +`</h>
+						    <div id="score">`+ com.score +`</div>
+						    </br>
+					    </div>
+					<div id = "com_text">`+ com.comment_text +`</div>
+						
+                    </div>
+                </div>
+            `
+
+        
+       
+    })
+    console.log(html_item)
+    all_comments_html.innerHTML = html_item
+}
+
+const stars_container = document.querySelector('#stars')
+
+function create_stars_group()
+{
+    var stars =''
+    for(i=0; i<5; i++)
+    {
+        stars +=
+            `
+                <div style=" margin-top:-5px; margin-left:-120px; float:left;" id = "star-five"></div>
+            `
+    }
+
+    stars_container.innerHTML = stars
+}
+
+create_stars_group()
