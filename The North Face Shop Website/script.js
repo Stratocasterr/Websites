@@ -222,6 +222,21 @@ window.onload = reload(wproducts[0])
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*                              COMMENTS                                   */
 
 
@@ -251,19 +266,31 @@ var actual_user =
     profile_img : "images/users/img1.jpg"
 }
 
-
 write_com_btn.addEventListener("click", () =>{com_adding()})
-
 add_thml_items()
 
 function com_adding()
 {
+    console.log(all_comments)
+    score = 0
+    stars = []
+    stars_container.innerHTML = ''
     $(comment_adder).css('visibility','visible')
     $(comment_adder).css('position','static')
     $(write_com_btn).css('visibility','hidden')
     $(add_com_btn).css('visibility','visible')
     user_img.src = actual_user.profile_img
     user_name.textContent = actual_user.username
+    create_stars_group()
+    stars = comment_adder.querySelectorAll('#star-five')
+
+    stars.forEach(element =>
+    {
+        element.addEventListener("click", function(element)
+        {
+            score = parseInt(element.target.textContent)
+            color_stars(score)
+        })})
 }
 
 add_com_btn.addEventListener("click", () =>
@@ -271,19 +298,18 @@ add_com_btn.addEventListener("click", () =>
     var header_value = com_header_input.value
     var text_value = com_text_input.value
 
-    var score = com_score_input.value
 
     com_header_input.value = ""
     com_text_input.value = ""
-    var score_value = stars_container.value
+    
 
-    if(header_value && text_value)
+    if(header_value && text_value && score)
     {
         var new_com = 
         {
             header: header_value,
             comment_text: text_value,
-            score: score_value,
+            score: score,
             id: Math.floor(Math.random() * 10000)
         }
 
@@ -296,21 +322,10 @@ add_com_btn.addEventListener("click", () =>
         add_thml_items()
     }
 
-    else if(!header_value)
-    {   
-        pop_info_window("noheader")
-    }
-
-    else if(!text_value)
-    {
-        pop_info_window("notext")
-    }
-
-    else if(!text_value)
-    {
-        pop_info_window("nostars")
-    }
-    //console.log(all_comments)
+    else if(!header_value) pop_info_window("noheader")
+    else if(!text_value) pop_info_window("notext")
+    else if(!text_value) pop_info_window("nostars")
+    else if(!score) pop_info_window("noscore")
 })
 
 
@@ -329,9 +344,9 @@ function pop_info_window(message)
         $('#info_window').css('background-color','red')
     }
 
-    else if (message =="nostars")
+    else if (message =="noscore")
     {
-        info_window.innerHTML = "No score"
+        info_window.innerHTML = "No score selected"
         $('#info_window').css('background-color','red')
     }
 
@@ -368,7 +383,7 @@ function add_thml_items()
                    <div id = "comment_content">
                         <div id = "header_stars">
                             <h id = "comment_header">`+ com.header +`</h>
-						    <div id="score">`+ com.score +`</div>
+						    <div id="score">`+ stars_container.innerHTML +`</div>
 						    </br>
 					    </div>
 					<div id = "com_text">`+ com.comment_text +`</div>
@@ -376,14 +391,9 @@ function add_thml_items()
                     </div>
                 </div>
             `
-
-        
-       
     })
-    
     all_comments_html.innerHTML = html_item
     }
-    
 }
 
 
@@ -394,37 +404,16 @@ function create_stars_group()
     for(i=0; i<5; i++)
     {
         value = i + 1 
-        stars +=
-            `
-                <div style=" margin-top:-5px; margin-left:-120px; float:left;" id = "star-five">` + value + `</div>
-            `
+        stars +=`<div style=" margin-top:-5px; margin-left:-120px; float:left;" id = "star-five">` + value + `</div>`
     }
-
     stars_container.innerHTML = stars
 }
-
-create_stars_group()
-stars = document.querySelectorAll('#star-five')
-score = 0
-stars.forEach(element =>
-    {
-    
-        element.addEventListener("click", function(element)
-        {
-            score = parseInt(element.target.textContent)
-            color_stars(score)
-        })
-
-       
-       
-    })
 
 function color_stars(index)
 {
     for(i=0 ; i < index ; i++)
     {
         $(stars[i]).css('--basic_color','gold')
-        
     }
 
     for(i=0; i<stars.length; i++)
@@ -432,5 +421,5 @@ function color_stars(index)
         if(i>index-1) $(stars[i]).css('--basic_color','red')
     }
 
-
 }
+
