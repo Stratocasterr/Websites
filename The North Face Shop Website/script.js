@@ -225,14 +225,14 @@ window.onload = reload(wproducts[0])
 /*                              COMMENTS                                   */
 
 
-
+window.localStorage.clear();
 const comment_adder = document.querySelector('#comment_adder')
 const write_com_btn = document.querySelector('#write_comment_btn')
 const all_comments_html = document.querySelector('#all_comments')
 
 var all_comments = []
-//memory_comments = window.localStorage.getItem('storaged_all_comments')
-//if(memory_comments) all_comments = memory_comments
+memory_comments = window.localStorage.getItem('storaged_all_comments')
+if(memory_comments) all_comments = JSON.parse(memory_comments)
 
 
 const add_com_btn = document.querySelector('#add_comment_btn')
@@ -245,13 +245,14 @@ const com_score_input = document.getElementById('stars')
 
 var actual_user = 
 {
-    username: "messi420",
+    username: "mesi420",
     profile_img : "images/users/img1.jpg"
 }
 
+
 write_com_btn.addEventListener("click", () =>{com_adding()})
 
-
+add_thml_items()
 
 function com_adding()
 {
@@ -287,7 +288,7 @@ add_com_btn.addEventListener("click", () =>
         $(write_com_btn).css('visibility','visible')
         $(add_com_btn).css('visibility','hidden')
         all_comments.push(new_com)
-        //window.localStorage.setItem("storaged_all_comments", all_comments)
+        window.localStorage.setItem("storaged_all_comments", JSON.stringify(all_comments))
         add_thml_items()
     }
 
@@ -305,7 +306,7 @@ add_com_btn.addEventListener("click", () =>
     {
         pop_info_window("nostars")
     }
-    console.log(all_comments)
+    //console.log(all_comments)
 })
 
 
@@ -347,7 +348,9 @@ function pop_info_window(message)
 function add_thml_items()
 {
     var html_item = ''
-    all_comments.forEach((com) => 
+    if (all_comments.length)
+    {
+        all_comments.forEach((com) => 
     {
         html_item += 
             `
@@ -373,8 +376,10 @@ function add_thml_items()
         
        
     })
-    console.log(html_item)
+    
     all_comments_html.innerHTML = html_item
+    }
+    
 }
 
 const stars_container = document.querySelector('#stars')
