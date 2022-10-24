@@ -166,21 +166,23 @@
 
 
 
-#star-five {
+#star-five 
+{
+	--basic_color: red;
 	margin: 50px 0;
 	position: relative;
 	display: block;
-	color: red;
+	color: var(--basic_color);
 	width: 0px;
 	height: 0px;
 	border-right: 100px solid transparent;
-	border-bottom: 70px solid red;
+	border-bottom: 70px solid var(--basic_color);
 	border-left: 100px solid transparent;
 	transform: rotate(35deg) scale(0.3);
 	
   }
   #star-five:before {
-	border-bottom: 80px solid red;
+	border-bottom: 80px solid var(--basic_color);
 	border-left: 30px solid transparent;
 	border-right: 30px solid transparent;
 	position: absolute;
@@ -196,14 +198,19 @@
   #star-five:after {
 	position: absolute;
 	display: block;
-	color: red;
+	color: var(--basic_color);
 	top: 3px;
 	left: -105px;
 	width: 0px;
 	height: 0px;
 	border-right: 100px solid transparent;
-	border-bottom: 70px solid red;
+	border-bottom: 70px solid var(--basic_color);
 	border-left: 100px solid transparent;
 	transform: rotate(-70deg);
 	content: '';
+  }
+
+  #star-five:hover
+  {
+	--basic_color: gold;
   }

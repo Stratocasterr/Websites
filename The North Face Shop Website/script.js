@@ -241,7 +241,9 @@ const user_img = comment_adder.querySelector('#user_img')
 
 const com_header_input = document.getElementById('comment_h_input')
 const com_text_input = document.getElementById('comment_text_input')
-const com_score_input = document.getElementById('stars')
+
+
+const stars_container = document.querySelector('#stars')
 
 var actual_user = 
 {
@@ -269,9 +271,11 @@ add_com_btn.addEventListener("click", () =>
     var header_value = com_header_input.value
     var text_value = com_text_input.value
 
+    var score = com_score_input.value
+
     com_header_input.value = ""
     com_text_input.value = ""
-    //var score_value = com_score_input.value
+    var score_value = stars_container.value
 
     if(header_value && text_value)
     {
@@ -279,7 +283,7 @@ add_com_btn.addEventListener("click", () =>
         {
             header: header_value,
             comment_text: text_value,
-            score: 4,
+            score: score_value,
             id: Math.floor(Math.random() * 10000)
         }
 
@@ -382,16 +386,17 @@ function add_thml_items()
     
 }
 
-const stars_container = document.querySelector('#stars')
+
 
 function create_stars_group()
 {
     var stars =''
     for(i=0; i<5; i++)
     {
+        value = i + 1 
         stars +=
             `
-                <div style=" margin-top:-5px; margin-left:-120px; float:left;" id = "star-five"></div>
+                <div style=" margin-top:-5px; margin-left:-120px; float:left;" id = "star-five">` + value + `</div>
             `
     }
 
@@ -399,3 +404,33 @@ function create_stars_group()
 }
 
 create_stars_group()
+stars = document.querySelectorAll('#star-five')
+score = 0
+stars.forEach(element =>
+    {
+    
+        element.addEventListener("click", function(element)
+        {
+            score = parseInt(element.target.textContent)
+            color_stars(score)
+        })
+
+       
+       
+    })
+
+function color_stars(index)
+{
+    for(i=0 ; i < index ; i++)
+    {
+        $(stars[i]).css('--basic_color','gold')
+        
+    }
+
+    for(i=0; i<stars.length; i++)
+    {
+        if(i>index-1) $(stars[i]).css('--basic_color','red')
+    }
+
+
+}
