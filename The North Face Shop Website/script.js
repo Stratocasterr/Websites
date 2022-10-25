@@ -273,8 +273,9 @@ function com_adding()
 {
     console.log(all_comments)
     score = 0
-    stars = []
+    adder_stars = []
     stars_container.innerHTML = ''
+
     $(comment_adder).css('visibility','visible')
     $(comment_adder).css('position','static')
     $(write_com_btn).css('visibility','hidden')
@@ -282,14 +283,14 @@ function com_adding()
     user_img.src = actual_user.profile_img
     user_name.textContent = actual_user.username
     create_stars_group()
-    stars = comment_adder.querySelectorAll('#star-five')
+    adder_stars = comment_adder.querySelectorAll('#star-five')
 
-    stars.forEach(element =>
+    adder_stars.forEach(element =>
     {
         element.addEventListener("click", function(element)
         {
             score = parseInt(element.target.textContent)
-            color_stars(score)
+            color_stars(score, adder_stars)
         })})
 }
 
@@ -298,11 +299,9 @@ add_com_btn.addEventListener("click", () =>
     var header_value = com_header_input.value
     var text_value = com_text_input.value
 
-
     com_header_input.value = ""
     com_text_input.value = ""
     
-
     if(header_value && text_value && score)
     {
         var new_com = 
@@ -391,12 +390,19 @@ function add_thml_items()
                     </div>
                 </div>
             `
+           
     })
     all_comments_html.innerHTML = html_item
+
+    all_comments.forEach((com) =>
+    {
+        var coment = document.querySelector("#comment"+ com.id)
+        stars = coment.querySelectorAll("#star-five")
+        color_stars(com.score, stars)
+    })
+    
     }
 }
-
-
 
 function create_stars_group()
 {
@@ -409,7 +415,7 @@ function create_stars_group()
     stars_container.innerHTML = stars
 }
 
-function color_stars(index)
+function color_stars(index, stars)
 {
     for(i=0 ; i < index ; i++)
     {
