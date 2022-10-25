@@ -173,14 +173,21 @@
 	
 	
 	<div id="comments_section">
+		<header>
+			Comments
+			<div style=" border-bottom: 1px solid white;"><h style="opacity: 0;">v</h></div>
+		</header>
+		</br>
+		</br>
+		</br>
 		<div id="all_comments"></div>	
 		
 			
 			
 		</div>
-		<div style=" position: relative; color: grey; border-bottom: 1px solid black;">v</div>
+		<div style=" border-bottom: 1px solid black;"><h style="opacity: 0;">v</h></div>
 		<div id="info_window"><h1></h1></div>
-		<button type = "button" id = "write_comment_btn">Write your comment</button>
+		<button class = "buy_it_button" type = "button" id = "write_comment_btn">Write your comment</button>
 		
 
 		<form id = "comment_adder" class="comments">
@@ -193,20 +200,20 @@
 				<div id="comment_content">
 	
 					<div id="header_stars">
-						<input placeholder="About..." id = "comment_h_input"/>
+						<input placeholder="Title*" id = "comment_h_input"/>
 						<div id="score">
-							<div style=" margin-left: 50px; height: 60px;  float: left;" id="stars"></div>
+							<div style="margin-left: 50px; height: 60px; float: left; " id="stars"></div>
 						</div>
 						</br>
 					</div>
 	
-					<textarea type = "button" id = "comment_text_input" placeholder="Your Comment..."></textarea>
+					<textarea type = "button" id = "comment_text_input" placeholder="Type your comment*"></textarea>
 						
 				
 	
 				</div>
 
-			<button type = "button" id = "add_comment_btn">Add your comment</button>
+			<button type = "button" class = "buy_it_button" id = "add_comment_btn">Add your comment</button>
 			
 		</form>
 	
@@ -294,6 +301,7 @@
 
 	<script src="jquery.js"></script>
 	<script src="script.js"></script>
+	<script src ="comments.js"></script>
 	
 </body>
 </html>

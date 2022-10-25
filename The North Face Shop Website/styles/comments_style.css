@@ -1,7 +1,7 @@
 #comments_section
 {
 	height: auto;
-	background-color: gray;
+	background-color: #50545f;
 	border-radius: 20px;
 	margin-left: auto;
 	margin-right: auto;
@@ -10,35 +10,18 @@
 	
 }
 
-#comment1
+#comments_section > header
 {
-	height: auto;
-}
-#comments > #total_stars_header
-{
-	
-	height: 250px;
+	font-size: 60px;
+	font-weight: 500;
+	color: white;
 }
 
-#comments > #total_stars_header > h1
-{
-	font-weight: 300;
-	width: 50%;
-	float: left;
-}
-
-
-#comments > #total_stars_header > #totalshopscore
-{
-	float: right;
-	width: 300px;
-	height: 200px;
-	background-color: gold;
-}
 
 .comments
 {
 	margin-bottom: 20px;
+	
 }
 .comments > #userinfo 
 {
@@ -46,108 +29,99 @@
 }
 .comments > #userinfo > img
 {
-	
+	border-radius: 50%;
 	width: 100px;
 	height: 100px;
 }
 
-.comments > #userinfo > h
+.comments > #userinfo > #username
 {
-
+	margin-left: 20px;
+	margin-top: 10px;
+	color: white;
 }
 
 .comments > #comment_content
 {
 	
 	margin-left: 120px;
-	background-color: red;
+	background-color: #26282E;
 	height: 200px;
 	
 }
 
 #comment_content > #header_stars
 {
-	background-color: beige;
+	background-color: #26282E;
 	margin-bottom: 20px;
 	height: 80px;
 }
 
-#header_stars > h
-{
-	background-color: rebeccapurple;
-	font-size: 20px;
-	float: left;
-}
+
 
 #header_stars > #score
 {
 	
 	width: 500px;
-	background-color: blue;
+	background-color: #26282E;
 	float: right;
 	margin-right: 100px;
 	height: 80px;
-	position: relative;
+	
 }
+
 
 #write_comment_btn
 {
-	height: 40px;
-	width: 120px;
-	background-color: greenyellow;
-	border-radius: 20px;
-	border: none;
 	margin-top: 20px;
-	
-	margin-left: 650px;
 }
 
 #write_comment_btn:hover
 {
 	cursor: pointer;
-	background-color: green;
 }
 
 #comment_content > #header_stars > #comment_h_input
 {
 	width: 55%;
-	
+	background-color: #26282E;
 	border: none;
-	font-size: 18px;
+	color: white;
+	font-size: 30px;
 }
 
 #comment_content > #comment_text_input
 {
 	font-size: 14px;
 	border: none;
-	width: 80%;
-	height: 55%;
-	
+	width: 95%;
+	height: 40%;
+	background-color: #26282E;
+	color: white;
+	font-size: 20px;
+}
+
+::placeholder
+{
+	color: white;
+	font-size: 20px;
 }
 
 #comment_adder
 {
-	
 	visibility: hidden;
 }
 
 #add_comment_btn
 {
-	height: 40px;
-	width: 120px;
-	background-color: greenyellow;
-	border-radius: 20px;
-	border: none;
 	margin-top: 20px;
 	visibility: hidden;
-	float: right;
-	
+	float: left;
 }
 
 #add_comment_btn:hover
 {
 	cursor: pointer;
-	background-color: green;
 }
 
 #info_window
@@ -158,7 +132,7 @@
 }
 #info_window > h1
 {
-	background-color: red;
+	background-color: #26282E;
 	border-radius: 20px;
 	font-size: 15px;
 	font-weight: 500;
@@ -168,9 +142,9 @@
 
 #star-five 
 {
-	--basic_color: red;
+	--basic_color: white;
 	margin: 50px 0;
-	position: relative;
+	
 	display: block;
 	color: var(--basic_color);
 	width: 0px;
@@ -214,3 +188,5 @@
   {
 	--basic_color: gold;
   }
+
+
