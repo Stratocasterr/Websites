@@ -240,14 +240,15 @@ window.onload = reload(wproducts[0])
 /*                              COMMENTS                                   */
 
 
-window.localStorage.clear();
+//window.localStorage.clear();
 const comment_adder = document.querySelector('#comment_adder')
 const write_com_btn = document.querySelector('#write_comment_btn')
 const all_comments_html = document.querySelector('#all_comments')
 
-var all_comments = []
 memory_comments = window.localStorage.getItem('storaged_all_comments')
-if(memory_comments) all_comments = JSON.parse(memory_comments)
+if(memory_comments) all_comments_html.innerHTML = memory_comments
+var all_comments = []
+
 
 
 const add_com_btn = document.querySelector('#add_comment_btn')
@@ -267,7 +268,7 @@ var actual_user =
 }
 
 write_com_btn.addEventListener("click", () =>{com_adding()})
-add_thml_items()
+//add_thml_items()
 
 function com_adding()
 {
@@ -317,7 +318,7 @@ add_com_btn.addEventListener("click", () =>
         $(write_com_btn).css('visibility','visible')
         $(add_com_btn).css('visibility','hidden')
         all_comments.push(new_com)
-        window.localStorage.setItem("storaged_all_comments", JSON.stringify(all_comments))
+       
         add_thml_items()
     }
 
@@ -378,7 +379,6 @@ function add_thml_items()
 				        </br>
 				        <h id="username">`+ actual_user.username +`</h>
                     </div>
-
                    <div id = "comment_content">
                         <div id = "header_stars">
                             <h id = "comment_header">`+ com.header +`</h>
@@ -386,13 +386,13 @@ function add_thml_items()
 						    </br>
 					    </div>
 					<div id = "com_text">`+ com.comment_text +`</div>
-						
                     </div>
                 </div>
             `
            
     })
-    all_comments_html.innerHTML = html_item
+    console.log(html_item)
+    all_comments_html.innerHTML = memory_comments + html_item
 
     all_comments.forEach((com) =>
     {
@@ -400,7 +400,8 @@ function add_thml_items()
         stars = coment.querySelectorAll("#star-five")
         color_stars(com.score, stars)
     })
-    
+    content_to_storage = document.querySelector('#all_comments').innerHTML 
+    window.localStorage.setItem("storaged_all_comments", content_to_storage)
     }
 }
 
