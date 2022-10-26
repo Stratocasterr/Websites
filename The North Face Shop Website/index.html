@@ -37,8 +37,9 @@
 	
 	</div>
 	<div id="top">
-	 
+		
 		<div id = "topbuttons">
+			
 			<button class="topbutton" id="language">English</button>
 			<button class="topbutton" id="order status">Order Status</button>
 			<button class="topbutton" id="livechat">Live chat</button>
@@ -46,14 +47,16 @@
 			<button class="topbutton" id="find a store">Find a Store </button>
 			<button class="topbutton" id="gift cards">Gift Cards</button>
 			<button class="topbutton" id="help">Help</button>
-			<button class="topbutton" id="sing_in" style="border: none;">Sing in</button>
+			<button class="topbutton" id="log_in" style="border: none;">Log in</button>
 		</div>
 	</div>
+
+	
 
 	<div id ="menu">
 		<img src="images/tnf.jpg" width="100px" height="100px" id="logo"/>
 		
-		
+		<h4>Welcome</h4>
 		<div id = "btns_search">
 			<div id="menubuttons">
 				<button class="menubutton" id="sale" style="color: red;">Sale</button>
@@ -79,14 +82,45 @@
 		</div>
 		
 	</div>
-
+	<div id="info_window"><h1></h1></div>
 	<div class="pop_window" id="sing_in_window">
 		<div class="window_container">
 			<button class="close-btn">
 				<line class="line1" ></line>
 				<line class="line2" ></line>
 			</button>
-			<h3>Sing in</h3>
+
+			<h3>Log in</h3>
+		
+			<div id = "log_in_container">
+				<form id = "log_in">
+					<input type="text" placeholder="Username*" id = "username_input"/>
+					<br>
+					<input type="text" placeholder="Password*" id = "password_input"/>
+				</form>
+				<button class = "buy_it_button" type="button" id = "log_in_button">Log in</button>
+				
+				<div id = "donthave_account_container">
+					<h1>Don't have account yet?</h1>
+					<button class = "buy_it_button" type="button" id = "create_account_window_button">Create account</button>
+				</div>
+	
+			</div>
+
+			
+			<div id ="create_account_container">
+				<form id = "create_account">
+					<input type="text" placeholder="Your username*" id = "your_username_input"/>
+					<br>
+					<input type="text" placeholder="Type password*" id = "type_password_input"/>
+					<br>
+					<input type="text" placeholder="Retype password*" id = "retype_password_input"/>
+					<button class = "buy_it_button" type="button" id = "create_account_button">Create account</button>
+				</form>
+
+
+			</div>
+			
 			
 		</div>
 	</div>
@@ -197,8 +231,8 @@
 			
 			
 		</div>
-		<div style=" border-bottom: 1px solid black;"><h style="opacity: 0;">v</h></div>
-		<div id="info_window"><h1></h1></div>
+		<div style=" border-bottom: 1px solid white;"><h style="opacity: 0;">v</h></div>
+		
 		<button class = "buy_it_button" type = "button" id = "write_comment_btn">Write your comment</button>
 		
 
@@ -312,7 +346,7 @@
 	</div>
 
 	<script src="jquery.js"></script>
-	<script src="script.js"></script>
+	<script src="products.js"></script>
 	<script src ="comments.js"></script>
 	<script src = "users.js"></script>
 	

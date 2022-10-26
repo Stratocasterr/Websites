@@ -36,7 +36,7 @@
 
 .comments > #userinfo > #username
 {
-	margin-left: 20px;
+	margin-left: 5px;
 	margin-top: 10px;
 	color: white;
 }
@@ -101,7 +101,13 @@
 	font-size: 20px;
 }
 
-::placeholder
+#comment_content > #comment_text_input::placeholder
+{
+	color: white;
+	font-size: 20px;
+}
+
+#comment_content > #header_stars > #comment_h_input::placeholder
 {
 	color: white;
 	font-size: 20px;
@@ -127,7 +133,9 @@
 #info_window
 {
 	text-align: center;
-	
+	position: sticky;
+	top: 0;
+	z-index: 3;
 	
 }
 #info_window > h1

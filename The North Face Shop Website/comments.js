@@ -16,11 +16,7 @@ const com_text_input = document.getElementById('comment_text_input')
 
 const stars_container = document.querySelector('#stars')
 
-var actual_user = 
-{
-    username: "leo42",
-    profile_img : "images/users/messi1.jpg"
-}
+
 
 write_com_btn.addEventListener("click", () =>{com_adding()})
 
@@ -35,8 +31,8 @@ function com_adding()
     $(comment_adder).css('position','static')
     $(write_com_btn).css('visibility','hidden')
     $(add_com_btn).css('visibility','visible')
-    user_img.src = actual_user.profile_img
-    user_name.textContent = actual_user.username
+    user_img.src = actual_user.get("profile_img")
+    user_name.textContent = actual_user.get("username")
     create_stars_group()
     adder_stars = comment_adder.querySelectorAll('#star-five')
 
@@ -115,6 +111,31 @@ function pop_info_window(message)
         info_window.innerHTML = "Comment succesfully removed!"
         $('#info_window').css('background-color','red')
     }
+
+    else if (message == "nousername")
+    {
+        info_window.innerHTML = "Type your user name!"
+        $('#info_window').css('background-color','red')
+    }
+
+    else if (message == "nopassword")
+    {
+        info_window.innerHTML = "Type your password!"
+        $('#info_window').css('background-color','red')
+    }
+
+    else if (message == "invalidusername")
+    {
+        info_window.innerHTML = "Invalid user name!"
+        $('#info_window').css('background-color','red')
+    }
+
+    else if (message == "invalidpassword")
+    {
+        info_window.innerHTML = "Invalid password!"
+        $('#info_window').css('background-color','red')
+    }
+
     setTimeout(function(){info_window.innerHTML = ""}, 2000)
 }
 
@@ -130,9 +151,9 @@ function add_thml_items()
             `
                 <div id = "comment`+ com.id +`" class = "comments">
                     <div id="userinfo">
-				        <img id="user_img" src="`+ actual_user.profile_img +`"/>
+				        <img id="user_img" src="`+ actual_user.get("profile_img") +`"/>
 				        </br>
-				        <h id="username" >`+ actual_user.username +`</h>
+				        <h id="username" >`+ actual_user.get("username") +`</h>
                     </div>
                    <div id = "comment_content" style = "background-color: #50545f;">
                         <div id = "header_stars" style = "background-color: #50545f;">
