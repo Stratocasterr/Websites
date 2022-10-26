@@ -1,4 +1,3 @@
-
 window.localStorage.clear();
 const comment_adder = document.querySelector('#comment_adder')
 const write_com_btn = document.querySelector('#write_comment_btn')
@@ -20,7 +19,7 @@ const stars_container = document.querySelector('#stars')
 var actual_user = 
 {
     username: "leo42",
-    profile_img : "images/users/img1.jpg"
+    profile_img : "images/users/messi1.jpg"
 }
 
 write_com_btn.addEventListener("click", () =>{com_adding()})
