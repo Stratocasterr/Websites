@@ -7,5 +7,5 @@ https://user-images.githubusercontent.com/101999487/193681812-f71e39b4-254c-46a5
 
 Local memory usage for comments: (update)
 
-https://user-images.githubusercontent.com/101999487/197719875-35281e4a-44e6-4af0-b128-b874e51c142a.mp4
+https://user-images.githubusercontent.com/101999487/197940714-c49318f7-94eb-4f56-a552-4f180f80b721.mp4
 
