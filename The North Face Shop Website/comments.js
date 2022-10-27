@@ -136,6 +136,31 @@ function pop_info_window(message)
         $('#info_window').css('background-color','red')
     }
 
+    else if (message == "nocreatepassword2")
+    {
+        info_window.innerHTML = "Retype your password!"
+        $('#info_window').css('background-color','red')
+    }
+
+    else if (message == "noimage")
+    {
+        info_window.innerHTML = "Add your profile image!"
+        $('#info_window').css('background-color','red')
+    }
+    
+    else if (message == "thesameusername")
+    {
+        info_window.innerHTML = "This username already exist! Please, choose another one"
+        $('#info_window').css('background-color','red')
+    }
+
+    else if (message == "differentpassword")
+    {
+        info_window.innerHTML = "Invalid value of retyped password!"
+        $('#info_window').css('background-color','red')
+    }
+
+    
     setTimeout(function(){info_window.innerHTML = ""}, 2000)
 }
 

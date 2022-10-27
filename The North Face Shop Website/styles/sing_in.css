@@ -20,7 +20,7 @@
 {
 	background-color: white;
 	width: 50%;
-	min-height: 50%;
+	height: 500px;
 	justify-content: space-around;
 	align-items: right;
 	border-radius: 3%;
@@ -116,10 +116,29 @@ form > #username_input
     margin-bottom: 15px;
 }
 
+#show_password
+{
+    position: absolute;
+    top:90px;
+    right: 35px;
+}
+
+#show_password > button
+{
+    width: 35px;
+    height: 35px;
+    background-image: url('../images/aye_icon.png');
+    background-size: 30px;
+}
+
+#show_password > button:hover
+{
+    cursor: pointer;
+}
+
 #log_in_container > #donthave_account_container
 {
     margin-top: 30px;
-    
 }
 
 #donthave_account_container > h1
@@ -134,7 +153,7 @@ form > #username_input
     visibility: hidden;
     --height: 300px;
     --width: 650px;
-    height: 70%;
+    
     width: var(--width);
     background-color: black;
     position: relative;
@@ -152,4 +171,43 @@ form > #username_input
 {
     height: 35px;
     margin-bottom: 10px;
+}
+
+#profile_img_uploader
+{
+    float: left;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top:30px;
+    right: 50px;
+    text-align: center;
+    border: 1px solid white;
+}
+
+#profile_img_uploader > h1
+{
+    font-size: 12px;
+    color: white;
+}
+
+#profile_img_uploader > input
+{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 150px;
+    height: 150px;
+    opacity: 0.1%;
+}
+
+#profile_img_uploader > input:hover
+{
+    cursor: pointer;
+}
+
+#profile_img_uploader > label
+{
+    font-size: 80px;
+    color: white;
 }

@@ -96,8 +96,11 @@
 				<form id = "log_in">
 					<input type="text" placeholder="Username*" id = "username_input"/>
 					<br>
-					<input type="text" placeholder="Password*" id = "password_input"/>
+					<input type="password" placeholder="Password*" id = "password_input" />
 				</form>
+				<div id ="show_password">
+					<button type = "button" id = "show_password_button" onclick="showpassword()"></button>
+				</div>
 				<button class = "buy_it_button" type="button" id = "log_in_button">Log in</button>
 				
 				<div id = "donthave_account_container">
@@ -109,6 +112,9 @@
 
 			
 			<div id ="create_account_container">
+
+				
+
 				<form id = "create_account">
 					<input type="text" placeholder="Your username*" id = "your_username_input"/>
 					<br>
@@ -117,6 +123,12 @@
 					<input type="text" placeholder="Retype password*" id = "retype_password_input"/>
 					<button class = "buy_it_button" type="button" id = "create_account_button">Create account</button>
 				</form>
+
+				<div id="profile_img_uploader">
+					<h1>Add profile image</h1>
+					<label for="upload_profile_img">+</label>
+					<input type="file" id="upload_profile_img" accept="image/jpeg, image/png, image/jpg">
+				</div>
 
 
 			</div>
