@@ -16,33 +16,35 @@ const com_text_input = document.getElementById('comment_text_input')
 
 const stars_container = document.querySelector('#stars')
 
-
-
 write_com_btn.addEventListener("click", () =>{com_adding()})
 
 function com_adding()
 {
-   
-    score = 0
-    adder_stars = []
-    stars_container.innerHTML = ''
-
-    $(comment_adder).css('visibility','visible')
-    $(comment_adder).css('position','static')
-    $(write_com_btn).css('visibility','hidden')
-    $(add_com_btn).css('visibility','visible')
-    user_img.src = actual_user.get("profile_img")
-    user_name.textContent = actual_user.get("username")
-    create_stars_group()
-    adder_stars = comment_adder.querySelectorAll('#star-five')
-
-    adder_stars.forEach(element =>
+    if(!jQuery.isEmptyObject(actual_user))
     {
-        element.addEventListener("click", function(element)
+        score = 0
+        adder_stars = []
+        stars_container.innerHTML = ''
+    
+        $(comment_adder).css('visibility','visible')
+        $(comment_adder).css('position','static')
+        $(write_com_btn).css('visibility','hidden')
+        $(add_com_btn).css('visibility','visible')
+        user_img.src = actual_user.profile_img
+        user_name.textContent = actual_user.username
+        create_stars_group()
+        adder_stars = comment_adder.querySelectorAll('#star-five')
+    
+        adder_stars.forEach(element =>
         {
-            score = parseInt(element.target.textContent)
-            color_stars(score, adder_stars)
-        })})
+            element.addEventListener("click", function(element)
+            {
+                score = parseInt(element.target.textContent)
+                color_stars(score, adder_stars)
+            })})
+    }
+    else pop_info_window("nouser")
+   
 }
 
 add_com_btn.addEventListener("click", () =>
@@ -62,13 +64,11 @@ add_com_btn.addEventListener("click", () =>
             score: score,
             id: Math.floor(Math.random() * 10000)
         }
-
         $(comment_adder).css('visibility','hidden')
         $(comment_adder).css('position','absolute')
         $(write_com_btn).css('visibility','visible')
         $(add_com_btn).css('visibility','hidden')
         all_comments.push(new_com)
-       
         add_thml_items()
     }
 
@@ -77,7 +77,6 @@ add_com_btn.addEventListener("click", () =>
     else if(!text_value) pop_info_window("nostars")
     else if(!score) pop_info_window("noscore")
 })
-
 
 function pop_info_window(message)
 {
@@ -159,8 +158,12 @@ function pop_info_window(message)
         info_window.innerHTML = "Invalid value of retyped password!"
         $('#info_window').css('background-color','red')
     }
-
     
+    else if (message == "nouser")
+    {
+        info_window.innerHTML = "No user! Please log in to add comment"
+        $('#info_window').css('background-color','red')
+    }
     setTimeout(function(){info_window.innerHTML = ""}, 2000)
 }
 
@@ -168,7 +171,7 @@ function add_thml_items()
 {
     var html_item = ''
     if(memory_comments) html_item += memory_comments
-    if ( all_comments.length > 0)
+    if (all_comments.length > 0)
     {
         all_comments.forEach((com) => 
     {
@@ -176,9 +179,9 @@ function add_thml_items()
             `
                 <div id = "comment`+ com.id +`" class = "comments">
                     <div id="userinfo">
-				        <img id="user_img" src="`+ actual_user.get("profile_img") +`"/>
+				        <img id="user_img" src="`+ actual_user.profile_img +`"/>
 				        </br>
-				        <h id="username" >`+ actual_user.get("username") +`</h>
+				        <h id="username" >`+ actual_user.username +`</h>
                     </div>
                    <div id = "comment_content" style = "background-color: #50545f;">
                         <div id = "header_stars" style = "background-color: #50545f;">
@@ -190,11 +193,9 @@ function add_thml_items()
                     </div>
                 </div>
             `
-           
     })
    
     all_comments_html.innerHTML = html_item
-
     all_comments.forEach((com) =>
     {
         var coment = document.querySelector("#comment"+ com.id)
@@ -228,6 +229,4 @@ function color_stars(index, stars)
     {
         if(i>index-1) $(stars[i]).css('--basic_color','white')
     }
-
 }
-

@@ -81,10 +81,7 @@ const kproducts=[
 ]
 
 
-
 const buttons = document.querySelectorAll(".buy_it_button")
-
-
 
 buttons.forEach(function(btn)
 {
@@ -112,8 +109,7 @@ function add_elements(items, colors)
     {   
         elements += add_element(items[i].name, items[i].image, items[i].price, items[i].content, colors[i])
     }
-    
-   
+
     document.getElementById("products").innerHTML = elements 
     const color_btns = document.querySelectorAll(".color_circle")
     color_btns.forEach(btn => 
@@ -124,7 +120,6 @@ function add_elements(items, colors)
             });
         })
 }
-
 
 function add_element(name, image, price, content, colors)
 {   
@@ -138,22 +133,17 @@ function add_element(name, image, price, content, colors)
                         <content style="font-weight: 300; font-size: 12px; text-align: justify; margin-left: 20px" >` + content + `</content>`
                         + colors + 
                     '</div>'
-            
     return element
-
 }
 
 function color_btns(colors, name, img_path)
 {
-   
     img_path = img_path.split('/').slice(0, -1).join("/") + "/"
     var buttons = '<div class = "color_buttons">'
     for(i = 0; i < colors.length; i++)
     {
-
         buttons += '<button id="' + name + '_' + img_path + colors[i] + '" class="color_circle" style = "background-color:' + find_color(colors[i]) + ';"></button>'
     }
-
     return buttons + '</div>'
 }
 
@@ -179,7 +169,6 @@ function change_group(products)
 
 function change_img(id_val)
 {
-    
     const n_id = id_val.split("_")
     var products = document.querySelectorAll(".buyproducts")
     products.forEach(p => 
@@ -189,9 +178,7 @@ function change_img(id_val)
                 p.getElementsByTagName('img')[0].src = n_id[1]
             }
         })
-    
 }
-
 
 document.getElementById("checked").addEventListener("click", 
 function() 
@@ -204,38 +191,15 @@ function()
 
 })
 
-
 var first = true
 
 function reload(product)
 {
     first = false
-    
     var element = ''
     product.colors.forEach(color => {
         element += add_element(product.name, product.image.split('/').slice(0, -1).join("/") + "/" + color, product.price, product.content, '' )
     })
     document.getElementById("products").innerHTML = element
 }
-
 window.onload = reload(wproducts[0])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*                              COMMENTS                                   */
-

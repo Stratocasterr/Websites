@@ -24,13 +24,7 @@ const upload_profile_img = document.querySelector('#upload_profile_img')
 
 
 
-close_window_button.addEventListener("click", () => 
-{ 
-    $('.pop_window').css('visibility','hidden')
-    $('#log_in_container').css('visibility','hidden')
-    $('#create_account_container').css('visibility','hidden')
-    window_headline.textContent = "Log in"
-})
+close_window_button.addEventListener("click", () => {close_account_window()})
 
 /*log in functions*/
 
@@ -42,6 +36,15 @@ log_in_window_button.addEventListener("click", () =>
 
 log_in_button.addEventListener("click", () => {log_in()})
 
+function close_account_window()
+{
+    $('.pop_window').css('visibility','hidden')
+    $('#log_in_container').css('visibility','hidden')
+    $('#create_account_container').css('visibility','hidden')
+    $('#profile_img_display').css('visibility', 'hidden')
+    window_headline.textContent = "Log in"
+}
+
 function showpassword()
 {
     var password_input = document.getElementById("password_input");
@@ -49,6 +52,14 @@ function showpassword()
     else password_input.type = "password";
 }
 
+function say_welcome(user)
+{
+    if(user) 
+    {
+        welcome_user.innerHTML = "Welcome " + actual_user.username
+        $(welcome_user).css('visibility','visible')
+    }
+}
 
 function log_in()
 {
@@ -79,6 +90,9 @@ function log_in()
     else if(!username_input_value) pop_info_window("nousername")
     else if(!password_input_value) pop_info_window("nopassword")
 
+    console.log(all_users)
+    console.log(actual_user)
+    close_account_window()
 }
 
 /*create account functions*/
@@ -119,14 +133,21 @@ function create_account()
             {
                 username: create_username_input_value,
                 password: create_password_input_value,
-                profile_img: profile_img_input_value
+                profile_img: "images/users/" + file[0].name
             }
             
             all_users.set(create_username_input_value, new_user)
             actual_user = new_user
+            all_users_names = Array.from(all_users.keys())
             create_username_input.value = ''
             create_password_input.value = ''
             create_password_input_2.value = ''
+            say_welcome(actual_user)
+            window.localStorage.setItem("all_users", JSON.stringify(all_users))
+            close_account_window()
+
+            console.log(all_users)
+            console.log(all_users_names)
         }
 
     else
@@ -138,24 +159,14 @@ function create_account()
     }
 }
 
-
-var actual_user = 
-{
-    username: "leomessi10",
-    password: "football1",
-    profile_img: "images/users/messi1.jpg"
-}
-
-if(actual_user) 
-{
-    welcome_user.innerHTML = "Welcome " + actual_user.username
-    $(welcome_user).css('visibility','visible')
-}
-
+var all_users_names = []
+var actual_user = {}
+let file = ''
 var all_users = new Map()
-all_users.set(actual_user.username, actual_user)
+let memory_users = window.localStorage.getItem(all_users)
+if(memory_users) all_users = memory_users
 
-all_users_names = Array.from(all_users.keys())
+
 
 /*image uploader*/
 
@@ -163,8 +174,13 @@ upload_profile_img.addEventListener("change", (element =>
     {
         if(window.File && window.FileReader && window.FileList && window.Blob)
         {
-            const files = element.target.files
-            console.log(files)
+            file = element.target.files
+            let profile_img_display =  document.querySelector('#profile_img_display')
+            profile_img_display.querySelector('#user_profile_img').src = "images/users/" + file[0].name
+            $(profile_img_display).css('visibility', 'visible')
         }
         else alert("Adding images failed!")
     }))
+
+console.log(all_users)
+console.log(all_users_names)
