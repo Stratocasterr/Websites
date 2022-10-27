@@ -28,10 +28,22 @@ close_window_button.addEventListener("click", () => {close_account_window()})
 
 /*log in functions*/
 
-log_in_window_button.addEventListener("click", () => 
+log_in_window_button.addEventListener("click", (element) => 
 {
-    $('.pop_window').css('visibility','visible')
-    $('#log_in_container').css('visibility','visible')
+    console.log(element.target.textContent)
+    if(element.target.textContent == "Log in")
+    {
+        $('.pop_window').css('visibility','visible')
+        $('#log_in_container').css('visibility','visible')
+    }
+    else 
+    {
+        console.log("lo")
+        element.target.textContent = "Log in"
+        actual_user = {}
+        say_welcome(0)
+    }
+
 })
 
 log_in_button.addEventListener("click", () => {log_in()})
@@ -59,13 +71,23 @@ function say_welcome(user)
         welcome_user.innerHTML = "Welcome " + actual_user.username
         $(welcome_user).css('visibility','visible')
     }
+    else $(welcome_user).css('visibility','hidden')
+}
+
+
+function reset_input()
+{
+    username_input.value = ''
+    password_input.value = ''
+    create_username_input.value = ''
+    create_password_input.value = ''
+    create_password_input_2.value = ''
 }
 
 function log_in()
 {
     var username_input_value = username_input.value
     var password_input_value = password_input.value
-    //var all_usernames = 
     if(username_input_value && password_input_value)
     {
         if(all_users_names.includes(username_input_value))
@@ -78,10 +100,10 @@ function log_in()
                     password: password_input_value,
                     profile_img: all_users.get(username_input_value).profile_img
                 }
+                log_in_window_button.textContent = "Log out"
 
                 $('.pop_window').css('visibility','hidden')
-                username_input.innerHTML = ''
-                password_input.innerHTML = ''
+                reset_input()
             }
             else pop_info_window("invalidpassword")
         }
@@ -89,9 +111,7 @@ function log_in()
     }
     else if(!username_input_value) pop_info_window("nousername")
     else if(!password_input_value) pop_info_window("nopassword")
-
-    console.log(all_users)
-    console.log(actual_user)
+    say_welcome(actual_user)
     close_account_window()
 }
 
@@ -135,21 +155,16 @@ function create_account()
                 password: create_password_input_value,
                 profile_img: "images/users/" + file[0].name
             }
-            
+            log_in_window_button.textContent = "Log out"
             all_users.set(create_username_input_value, new_user)
             actual_user = new_user
             all_users_names = Array.from(all_users.keys())
-            create_username_input.value = ''
-            create_password_input.value = ''
-            create_password_input_2.value = ''
+            
             say_welcome(actual_user)
             window.localStorage.setItem("all_users", JSON.stringify(all_users))
             close_account_window()
-
-            console.log(all_users)
-            console.log(all_users_names)
+            reset_input()
         }
-
     else
     {
         if(!create_username_input_value) pop_info_window("nousername")
@@ -166,10 +181,7 @@ var all_users = new Map()
 let memory_users = window.localStorage.getItem(all_users)
 if(memory_users) all_users = memory_users
 
-
-
 /*image uploader*/
-
 upload_profile_img.addEventListener("change", (element => 
     {
         if(window.File && window.FileReader && window.FileList && window.Blob)
@@ -181,6 +193,3 @@ upload_profile_img.addEventListener("change", (element =>
         }
         else alert("Adding images failed!")
     }))
-
-console.log(all_users)
-console.log(all_users_names)

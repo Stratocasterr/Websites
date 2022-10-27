@@ -1,4 +1,4 @@
-window.localStorage.clear();
+//window.localStorage.clear();
 const comment_adder = document.querySelector('#comment_adder')
 const write_com_btn = document.querySelector('#write_comment_btn')
 const all_comments_html = document.querySelector('#all_comments')
@@ -22,6 +22,7 @@ function com_adding()
 {
     if(!jQuery.isEmptyObject(actual_user))
     {
+
         score = 0
         adder_stars = []
         stars_container.innerHTML = ''
@@ -169,35 +170,38 @@ function pop_info_window(message)
 
 function add_thml_items()
 {
-    var html_item = ''
     if(memory_comments) html_item += memory_comments
     if (all_comments.length > 0)
     {
-        all_comments.forEach((com) => 
-    {
-        html_item += 
+       
+        let comment = all_comments[all_comments.length - 1]
+        html_item = 
             `
-                <div id = "comment`+ com.id +`" class = "comments">
+                <div id = "comment`+ comment.id +`" class = "comments">
                     <div id="userinfo">
-				        <img id="user_img" src="`+ actual_user.profile_img +`"/>
-				        </br>
-				        <h id="username" >`+ actual_user.username +`</h>
+                        <img id="user_img" src="`+ actual_user.profile_img +`"/>
+                        </br>
+                        <h id="username" >`+ actual_user.username +`</h>
                     </div>
-                   <div id = "comment_content" style = "background-color: #50545f;">
+                <div id = "comment_content" style = "background-color: #50545f;">
                         <div id = "header_stars" style = "background-color: #50545f;">
-                            <h id = "comment_header" style = "color: white; font-size:30px; background-color: #50545f;">`+ com.header +`</h>
-						    <div id="score" style = "background-color: #50545f;">`+ stars_container.innerHTML +`</div>
-						    </br>
-					    </div>
-					<div class = "comment_text" style="color:white; font-size:20px">`+ com.comment_text +`</div>
+                            <h id = "comment_header" style = "color: white; font-size:30px; background-color: #50545f;">`+ comment.header +`</h>
+                            <div id="score" style = "background-color: #50545f;">`+ stars_container.innerHTML +`</div>
+                            </br>
+                        </div>
+                    <div class = "comment_text" style="color:white; font-size:20px">`+ comment.comment_text +`</div>
                     </div>
                 </div>
             `
-    })
-   
-    all_comments_html.innerHTML = html_item
+        
+    console.log(all_comments_html.textContent)
+    all_comments_html.innerHTML = all_comments_html.innerHTML + html_item
+
     all_comments.forEach((com) =>
-    {
+    {   
+        console.log("#comment"+ com.id)
+        console.log(all_comments)
+        
         var coment = document.querySelector("#comment"+ com.id)
         stars = coment.querySelectorAll("#star-five")
         color_stars(com.score, stars)
