@@ -1,4 +1,4 @@
-//window.localStorage.clear();
+
 const comment_adder = document.querySelector('#comment_adder')
 const write_com_btn = document.querySelector('#write_comment_btn')
 const all_comments_html = document.querySelector('#all_comments')
@@ -79,97 +79,11 @@ add_com_btn.addEventListener("click", () =>
     else if(!score) pop_info_window("noscore")
 })
 
-function pop_info_window(message)
-{
-    const info_window = document.getElementById('info_window')
-    if(message == "noheader")
-    {
-        info_window.innerHTML = "No comment header"
-        $('#info_window').css('background-color','red')
-    }
 
-    else if (message =="notext")
-    {
-        info_window.innerHTML = "No comment content"
-        $('#info_window').css('background-color','red')
-    }
-
-    else if (message =="noscore")
-    {
-        info_window.innerHTML = "No score selected"
-        $('#info_window').css('background-color','red')
-    }
-
-    else if (message =="comadded")
-    {
-        info_window.innerHTML = "Comment successfully added"
-        $('#info_window').css('background-color','greenyellow')
-    }
-
-    else if (message =="comdeleted")
-    {
-        info_window.innerHTML = "Comment succesfully removed!"
-        $('#info_window').css('background-color','red')
-    }
-
-    else if (message == "nousername")
-    {
-        info_window.innerHTML = "Type your user name!"
-        $('#info_window').css('background-color','red')
-    }
-
-    else if (message == "nopassword")
-    {
-        info_window.innerHTML = "Type your password!"
-        $('#info_window').css('background-color','red')
-    }
-
-    else if (message == "invalidusername")
-    {
-        info_window.innerHTML = "Invalid user name!"
-        $('#info_window').css('background-color','red')
-    }
-
-    else if (message == "invalidpassword")
-    {
-        info_window.innerHTML = "Invalid password!"
-        $('#info_window').css('background-color','red')
-    }
-
-    else if (message == "nocreatepassword2")
-    {
-        info_window.innerHTML = "Retype your password!"
-        $('#info_window').css('background-color','red')
-    }
-
-    else if (message == "noimage")
-    {
-        info_window.innerHTML = "Add your profile image!"
-        $('#info_window').css('background-color','red')
-    }
-    
-    else if (message == "thesameusername")
-    {
-        info_window.innerHTML = "This username already exist! Please, choose another one"
-        $('#info_window').css('background-color','red')
-    }
-
-    else if (message == "differentpassword")
-    {
-        info_window.innerHTML = "Invalid value of retyped password!"
-        $('#info_window').css('background-color','red')
-    }
-    
-    else if (message == "nouser")
-    {
-        info_window.innerHTML = "No user! Please log in to add comment"
-        $('#info_window').css('background-color','red')
-    }
-    setTimeout(function(){info_window.innerHTML = ""}, 2000)
-}
 
 function add_thml_items()
 {
+    html_item=''
     if(memory_comments) html_item += memory_comments
     if (all_comments.length > 0)
     {

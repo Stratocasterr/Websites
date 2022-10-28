@@ -48,41 +48,9 @@ log_in_window_button.addEventListener("click", (element) =>
 
 log_in_button.addEventListener("click", () => {log_in()})
 
-function close_account_window()
-{
-    $('.pop_window').css('visibility','hidden')
-    $('#log_in_container').css('visibility','hidden')
-    $('#create_account_container').css('visibility','hidden')
-    $('#profile_img_display').css('visibility', 'hidden')
-    window_headline.textContent = "Log in"
-}
-
-function showpassword()
-{
-    var password_input = document.getElementById("password_input");
-    if (password_input.type === "password") password_input.type = "text";
-    else password_input.type = "password";
-}
-
-function say_welcome(user)
-{
-    if(user) 
-    {
-        welcome_user.innerHTML = "Welcome " + actual_user.username
-        $(welcome_user).css('visibility','visible')
-    }
-    else $(welcome_user).css('visibility','hidden')
-}
 
 
-function reset_input()
-{
-    username_input.value = ''
-    password_input.value = ''
-    create_username_input.value = ''
-    create_password_input.value = ''
-    create_password_input_2.value = ''
-}
+
 
 function log_in()
 {
@@ -92,13 +60,13 @@ function log_in()
     {
         if(all_users_names.includes(username_input_value))
         {
-            if(all_users.get(username_input_value).password == password_input_value)
+            if(all_users[username_input_value].password == password_input_value)
             {
                 actual_user = 
                 {
                     username: username_input_value,
                     password: password_input_value,
-                    profile_img: all_users.get(username_input_value).profile_img
+                    profile_img: all_users[username_input_value].profile_img
                 }
                 log_in_window_button.textContent = "Log out"
 
@@ -114,6 +82,20 @@ function log_in()
     say_welcome(actual_user)
     close_account_window()
 }
+
+/*image uploader*/
+upload_profile_img.addEventListener("change", (element => 
+    {
+        if(window.File && window.FileReader && window.FileList && window.Blob)
+        {
+            file = element.target.files
+            let profile_img_display =  document.querySelector('#profile_img_display')
+            profile_img_display.querySelector('#user_profile_img').src = "images/users/" + file[0].name
+            $(profile_img_display).css('visibility', 'visible')
+        }
+        else alert("Adding images failed!")
+    }))
+
 
 /*create account functions*/
 
@@ -149,19 +131,20 @@ function create_account()
                 return 0
             }
 
-            let new_user = 
+            var new_user = 
             {
                 username: create_username_input_value,
                 password: create_password_input_value,
                 profile_img: "images/users/" + file[0].name
             }
             log_in_window_button.textContent = "Log out"
-            all_users.set(create_username_input_value, new_user)
+            all_users[create_username_input_value] = new_user
             actual_user = new_user
-            all_users_names = Array.from(all_users.keys())
+            
             
             say_welcome(actual_user)
-            window.localStorage.setItem("all_users", JSON.stringify(all_users))
+            window.localStorage.setItem("memory_all_users", JSON.stringify(all_users))
+            all_users_names = get_object_names(all_users)
             close_account_window()
             reset_input()
         }
@@ -177,19 +160,45 @@ function create_account()
 var all_users_names = []
 var actual_user = {}
 let file = ''
-var all_users = new Map()
-let memory_users = window.localStorage.getItem(all_users)
-if(memory_users) all_users = memory_users
+var all_users = {}
+var memory_users = JSON.parse(window.localStorage.getItem("memory_all_users"))
+if(memory_users)
+{
+    all_users = memory_users
+    all_users_names = get_object_names(all_users)
+}
 
-/*image uploader*/
-upload_profile_img.addEventListener("change", (element => 
+
+function lala()
+{
+    setTimeout(function()
     {
-        if(window.File && window.FileReader && window.FileList && window.Blob)
+        console.log("######")
+        console.log(all_users)
+        console.log(memory_users)
+
+        console.log(actual_user)
+
+        console.log(all_comments)
+        console.log(memory_comments)
+        console.log(all_users_names)
+        lala()
+    }, 2000)
+}
+
+lala()
+//window.localStorage.clear();
+function get_object_names(obj)
+{
+    names = []
+    if(obj)
+    {
+        for(var key in obj)
         {
-            file = element.target.files
-            let profile_img_display =  document.querySelector('#profile_img_display')
-            profile_img_display.querySelector('#user_profile_img').src = "images/users/" + file[0].name
-            $(profile_img_display).css('visibility', 'visible')
+           
+            names.push(key)
         }
-        else alert("Adding images failed!")
-    }))
+    }
+    return names
+}
+
