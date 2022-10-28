@@ -5,7 +5,7 @@ browsing products:
 
 https://user-images.githubusercontent.com/101999487/193681812-f71e39b4-254c-46a5-adad-425f31c0500a.mp4
 
-Local memory usage for comments: (update)
+One can create account, login/logout and adding comments: (update)
 
-https://user-images.githubusercontent.com/101999487/197940714-c49318f7-94eb-4f56-a552-4f180f80b721.mp4
+https://user-images.githubusercontent.com/101999487/198567612-ff9ed30c-58a0-4c8a-a5b1-5b6c6407dce3.mp4
 
