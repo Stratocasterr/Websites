@@ -111,6 +111,7 @@ function say_welcome(user)
     {
         welcome_user.innerHTML = "Welcome " + actual_user.username
         $(welcome_user).css('visibility','visible')
+        log_in_window_button.textContent = "Log out"
     }
     else $(welcome_user).css('visibility','hidden')
 }
@@ -123,5 +124,19 @@ function reset_input()
     create_username_input.value = ''
     create_password_input.value = ''
     create_password_input_2.value = ''
+}
+
+function get_object_names(obj)
+{
+    names = []
+    if(obj)
+    {
+        for(var key in obj)
+        {
+           
+            names.push(key)
+        }
+    }
+    return names
 }
 

@@ -68,10 +68,12 @@ function log_in()
                     password: password_input_value,
                     profile_img: all_users[username_input_value].profile_img
                 }
-                log_in_window_button.textContent = "Log out"
+                window.localStorage.setItem("memory_login_user", JSON.stringify(actual_user))
+                
 
                 $('.pop_window').css('visibility','hidden')
                 reset_input()
+                window.location.reload()
             }
             else pop_info_window("invalidpassword")
         }
@@ -79,7 +81,7 @@ function log_in()
     }
     else if(!username_input_value) pop_info_window("nousername")
     else if(!password_input_value) pop_info_window("nopassword")
-    say_welcome(actual_user)
+    
     close_account_window()
 }
 
@@ -137,12 +139,13 @@ function create_account()
                 password: create_password_input_value,
                 profile_img: "images/users/" + file[0].name
             }
-            log_in_window_button.textContent = "Log out"
+            
             all_users[create_username_input_value] = new_user
+            
             actual_user = new_user
             
             
-            say_welcome(actual_user)
+            
             window.localStorage.setItem("memory_all_users", JSON.stringify(all_users))
             all_users_names = get_object_names(all_users)
             close_account_window()
@@ -162,12 +165,16 @@ var actual_user = {}
 let file = ''
 var all_users = {}
 var memory_users = JSON.parse(window.localStorage.getItem("memory_all_users"))
+var memory_login_userr = JSON.parse(window.localStorage.getItem("memory_login_user"))
+
 if(memory_users)
 {
     all_users = memory_users
     all_users_names = get_object_names(all_users)
+    actual_user = JSON.parse(window.localStorage.getItem("memory_login_user"))
 }
 
+if(actual_user) say_welcome(actual_user)
 
 function lala()
 {
@@ -178,6 +185,7 @@ function lala()
         console.log(memory_users)
 
         console.log(actual_user)
+        console.log(memory_login_userr)
 
         console.log(all_comments)
         console.log(memory_comments)
@@ -188,17 +196,3 @@ function lala()
 
 lala()
 //window.localStorage.clear();
-function get_object_names(obj)
-{
-    names = []
-    if(obj)
-    {
-        for(var key in obj)
-        {
-           
-            names.push(key)
-        }
-    }
-    return names
-}
-
