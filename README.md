@@ -1,6 +1,11 @@
 # The North Face online shop website
+### What is it?
+Here you can take a look on my first website project. This is a online mountain shop's website, which i decided to create, since I am totally in love with hiking.
 
+### Capabilities
+For now, one can browse trough a few products, create account and add some scored-comments. 
 
+### Check it out
 browsing products:
 
 https://user-images.githubusercontent.com/101999487/193681812-f71e39b4-254c-46a5-adad-425f31c0500a.mp4
