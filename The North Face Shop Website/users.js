@@ -41,6 +41,7 @@ log_in_window_button.addEventListener("click", (element) =>
         console.log("lo")
         element.target.textContent = "Log in"
         actual_user = {}
+        localStorage.removeItem("memory_login_user")
         say_welcome(0)
     }
 
@@ -73,7 +74,7 @@ function log_in()
 
                 $('.pop_window').css('visibility','hidden')
                 reset_input()
-                window.location.reload()
+                
             }
             else pop_info_window("invalidpassword")
         }
@@ -83,6 +84,7 @@ function log_in()
     else if(!password_input_value) pop_info_window("nopassword")
     
     close_account_window()
+    window.location.reload()
 }
 
 /*image uploader*/
@@ -174,7 +176,7 @@ if(memory_users)
     actual_user = JSON.parse(window.localStorage.getItem("memory_login_user"))
 }
 
-if(actual_user) say_welcome(actual_user)
+if(!jQuery.isEmptyObject(actual_user)) say_welcome(actual_user)
 
 function lala()
 {
