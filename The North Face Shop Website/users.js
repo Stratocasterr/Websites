@@ -1,9 +1,10 @@
 /*CONST*/
 
 /*login*/
+const menu = document.getElementById('menu')
 const log_in_window_button = document.querySelector('#log_in')
 const close_window_button=document.querySelector('.close-btn')
-const welcome_user = document.getElementById('menu').querySelector('h4')
+const welcome_user = menu.querySelector('h4')
 
 const log_in_container = document.querySelector('#log_in_container')
 const username_input = document.querySelector('#username_input')
@@ -74,6 +75,7 @@ function log_in()
 
                 $('.pop_window').css('visibility','hidden')
                 reset_input()
+                window.location.reload()
                 
             }
             else pop_info_window("invalidpassword")
@@ -84,7 +86,7 @@ function log_in()
     else if(!password_input_value) pop_info_window("nopassword")
     
     close_account_window()
-    window.location.reload()
+    
 }
 
 /*image uploader*/
@@ -190,7 +192,7 @@ function lala()
         console.log(memory_login_userr)
 
         console.log(all_comments)
-        console.log(memory_comments)
+        //console.log(memory_comments)
         console.log(all_users_names)
         lala()
     }, 2000)

@@ -216,3 +216,15 @@ form > #username_input
 {
     visibility: hidden;
 }
+
+
+#small_profile_welcome_img
+{
+    visibility: visible;
+    position: static;
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin-right: 115px;
+}
+
