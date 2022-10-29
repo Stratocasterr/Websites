@@ -91,8 +91,8 @@ function pop_info_window(message)
 /* account functions */
 function close_account_window()
 {
-    $('.pop_window').css('visibility','hidden')
-    $('.pop_window').css('opacity','0')
+    $(login_create_pop_window).css('visibility','hidden')
+    $(login_create_pop_window).css('opacity','0')
 
     $(log_in_container).css('visibility','hidden')
     $(log_in_container).css('opacity','0')

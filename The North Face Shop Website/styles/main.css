@@ -90,7 +90,7 @@ body
 #welcome_user:hover
 {
 	
-
+	border: 5px solid black;
 	cursor: pointer;
 }
 
@@ -129,6 +129,7 @@ body
 .menubutton:hover
 {
 	cursor: pointer;
+
 }
 
 #search_trolley

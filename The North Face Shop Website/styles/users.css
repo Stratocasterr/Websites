@@ -1,0 +1,17 @@
+
+#profile_window
+{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 600px;
+    height: 800px;
+    background-color: red;
+    
+}
+
+#profile_window > #profile_window_container
+{
+    visibility: visible;
+    opacity: 1;
+}
