@@ -92,8 +92,14 @@ function pop_info_window(message)
 function close_account_window()
 {
     $('.pop_window').css('visibility','hidden')
-    $('#log_in_container').css('visibility','hidden')
+    $('.pop_window').css('opacity','0')
+
+    $(log_in_container).css('visibility','hidden')
+    $(log_in_container).css('opacity','0')
+
     $('#create_account_container').css('visibility','hidden')
+    $('#create_account_container').css('opacity','0')
+
     $('#profile_img_display').css('visibility', 'hidden')
     window_headline.textContent = "Log in"
 }

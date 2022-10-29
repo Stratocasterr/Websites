@@ -34,9 +34,15 @@ log_in_window_button.addEventListener("click", (element) =>
     console.log(element.target.textContent)
     if(element.target.textContent == "Log in")
     {
+        //$('.pop_window').css('visibility','visible')
+        $('.pop_window').css('opacity','1')
         $('.pop_window').css('visibility','visible')
-        $('.pop_window').css('transition','visible 0.5s ease-in-out')
-        $('#log_in_container').css('visibility','visible')
+        //$('.pop_window').css('transition','opacity 0.5s ease-in-out')
+        $(window_container).css('opacity','1')
+        $(window_container).css('visibility','visible')
+
+        $(log_in_container).css('opacity','1')
+        $(log_in_container).css('visibility','visible')
     }
     else 
     {
@@ -51,6 +57,24 @@ log_in_window_button.addEventListener("click", (element) =>
 
 log_in_button.addEventListener("click", () => {log_in()})
 
+/*create account functions*/
+
+create_account_window_button.addEventListener("click", () => 
+{
+    $('#create_account_container').css('visibility','visible')
+    $('#create_account_container').css('opacity','1')
+    
+    $(log_in_container).css('visibility','hidden')
+    $(log_in_container).css('opacity','0')
+    $(log_in_container).css('position','absolute')
+
+    
+    
+
+    window_headline.textContent = "Join us"
+})
+
+create_account_button.addEventListener("click", () => {create_account()})
 
 
 
@@ -104,17 +128,6 @@ upload_profile_img.addEventListener("change", (element =>
     }))
 
 
-/*create account functions*/
-
-create_account_window_button.addEventListener("click", () => 
-{
-    $('#create_account_container').css('visibility','visible')
-    $('#log_in_container').css('visibility','hidden')
-    $('#log_in_container').css('position','absolute')
-    window_headline.textContent = "Join us"
-})
-
-create_account_button.addEventListener("click", () => {create_account()})
 
 function create_account()
 {
