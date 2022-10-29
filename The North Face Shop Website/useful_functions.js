@@ -107,20 +107,19 @@ function showpassword()
 
 function say_welcome(user)
 {
-    const small_pimg = menu.querySelector('#small_profile_welcome_img')
+    const small_pimg = welcome_user.querySelector('#small_profile_welcome_img')
+    const welcome_user_headline = welcome_user.querySelector('h4')
     if(user) 
     {
         
-        welcome_user.innerHTML = "Welcome " + actual_user.username
+        welcome_user_headline.innerHTML = "Welcome " + actual_user.username
         $(welcome_user).css('visibility','visible')
         log_in_window_button.textContent = "Log out"
-        $(small_pimg).css('visibility', 'visible')
         small_pimg.src = actual_user.profile_img
     }
     else
     { 
         $(welcome_user).css('visibility','hidden')
-        $(small_pimg).css('display', 'none')
     }
 }
 

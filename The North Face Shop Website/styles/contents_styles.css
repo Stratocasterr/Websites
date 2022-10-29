@@ -121,11 +121,24 @@
 
 #content_4
 {
-	height: 950px;
+	--content_4_width: 100%;
+	--content_4_height: 950px;
+	height: var(--content_4_height);
 	margin-top: 100px;
 	background-color: black;
 	letter-spacing: 2px;
 	border-radius: 20px;
+}
+
+#content_4 > h1
+{
+	--header_width: 5%;
+	position: absolute;
+	left: calc(var(--content_4_width) / 2 - var(--header_width));
+	color: white;
+	font-size: 20px;
+	font-weight: 300;
+	
 }
 
 #menwmnkids_buttons

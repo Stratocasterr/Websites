@@ -4,7 +4,7 @@
 const menu = document.getElementById('menu')
 const log_in_window_button = document.querySelector('#log_in')
 const close_window_button=document.querySelector('.close-btn')
-const welcome_user = menu.querySelector('h4')
+const welcome_user = menu.querySelector('#welcome_user')
 
 const log_in_container = document.querySelector('#log_in_container')
 const username_input = document.querySelector('#username_input')
@@ -35,6 +35,7 @@ log_in_window_button.addEventListener("click", (element) =>
     if(element.target.textContent == "Log in")
     {
         $('.pop_window').css('visibility','visible')
+        $('.pop_window').css('transition','visible 0.5s ease-in-out')
         $('#log_in_container').css('visibility','visible')
     }
     else 
