@@ -115,6 +115,8 @@ function say_welcome(user)
 {
     const small_pimg = welcome_user.querySelector('#small_profile_welcome_img')
     const welcome_user_headline = welcome_user.querySelector('h4')
+    
+    
     if(user) 
     {
         

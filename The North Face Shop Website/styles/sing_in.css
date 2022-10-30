@@ -34,7 +34,7 @@
     transition: all 0.5s ease-in-out;
 }
 
-.window_container > .close-btn
+.close-btn
 {
 	width: 30px;
 	height: 30px;
@@ -47,7 +47,7 @@
     left: 10px;
 }
 
-.window_container > .close-btn:hover
+.close-btn:hover
 {
     cursor: pointer;
     text-align: center;

@@ -1,17 +1,96 @@
-
-#profile_window
+#profile_window_container
 {
-    position: absolute;
-    top:0;
-    left:0;
-    width: 600px;
-    height: 800px;
-    background-color: red;
-    
+    --profile_window_width :700px;
+    --profile_window_height :700px;
+    width: var(--profile_window_width);
+    height: var(--profile_window_height);
+    background-color: white;
+    position: relative;
+    top:-100px;
 }
 
-#profile_window > #profile_window_container
+#profile_window_container > h3
 {
-    visibility: visible;
-    opacity: 1;
+    --headline_width: calc(var(--profile_window_width)/6);
+    width: var(--headline_width);
+    margin-left: calc(var(--profile_window_width)/2 - 0.5 * var(--headline_width));
+    margin-top: 5px;
+}
+
+
+.profile_window_header
+{
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.clothes_info_header
+{
+    font-size: 25px;
+    font-weight: 500;
+    width: 25%;
+}
+
+#profile_window_content > #user_main_infos
+{
+    padding: 20px;
+    position: relative;
+    background-color: white;
+    height: calc(var(--profile_window_height)/2);
+}
+
+#profile_window_content > #user_main_infos > #userimg
+{
+    float: left;  
+}
+
+#profile_window_content > #user_main_infos > #userimg > img
+{
+    width: 250px;
+    height: 250px;
+    border-radius: 50%
+}
+
+#profile_window_content > #user_main_infos > #userimg > button
+{
+    float: left;
+}
+
+#profile_window_content > #user_main_infos > #username_password
+{
+    float: right;
+    width: 60%; 
+}
+
+
+.userinfo
+{
+	text-align: center;
+	height: 40px;
+	width: 250px;	
+	font-family: 'Montserrat', sans-serif;
+	color: black;
+	font-weight: 600;
+    border: 1px solid black;
+    background-color: white;
+    position: absolute;
+}
+
+#user_clothes_infos
+{
+    background-color: white;
+    padding: 20px;
+   
+}
+
+#profile_window_content > #user_clothes_infos > #gender 
+{
+   
+    margin-bottom: 55px;
+}
+
+
+#profile_window_content > #user_window_buttons
+{
+    background-color: white;
 }

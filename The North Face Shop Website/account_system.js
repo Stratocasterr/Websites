@@ -3,7 +3,7 @@ const sing_in_window = document.querySelector('#sing_in_window')
 /*login*/
 const menu = document.getElementById('menu')
 const log_in_window_button = document.querySelector('#log_in')
-const close_window_button=document.querySelector('.close-btn')
+
 
 
 const log_in_container = document.querySelector('#log_in_container')
@@ -13,15 +13,17 @@ const log_in_button = document.querySelector('#log_in_button')
 
 /*headline*/
 const window_container = document.querySelector('.window_container')
+const close_window_button = window_container.querySelector('.close-btn')
 const window_headline = window_container.querySelector('h3')
 
 /*create account*/
+const profile_img_uploader = document.querySelector('#profile_img_uploader')
 const create_account_window_button = document.querySelector('#create_account_window_button')
 const create_account_button = document.querySelector('#create_account_button')
 const create_username_input = document.querySelector('#your_username_input')
 const create_password_input = document.querySelector('#type_password_input')
 const create_password_input_2 = document.querySelector('#retype_password_input')
-const upload_profile_img = document.querySelector('#upload_profile_img')
+const upload_profile_img = profile_img_uploader.querySelector('#upload_profile_img')
 const login_create_pop_window = sing_in_window.querySelector('.pop_window')
 
 
@@ -120,17 +122,20 @@ function log_in()
 /*image uploader*/
 upload_profile_img.addEventListener("change", (element => 
     {
-        if(window.File && window.FileReader && window.FileList && window.Blob)
-        {
-            file = element.target.files
-            let profile_img_display =  document.querySelector('#profile_img_display')
-            profile_img_display.querySelector('#user_profile_img').src = "images/users/" + file[0].name
-            $(profile_img_display).css('visibility', 'visible')
-        }
-        else alert("Adding images failed!")
+        upload_img(element)
     }))
 
-
+function upload_img(element, dest)
+{
+    if(window.File && window.FileReader && window.FileList && window.Blob)
+    {
+        file = element.target.files
+        let profile_img_display =  document.querySelector('#profile_img_display')
+        profile_img_display.querySelector('#user_profile_img').src = "images/users/" + file[0].name
+        $(profile_img_display).css('visibility', 'visible')
+    }
+    else alert("Adding images failed!")
+}
 
 function create_account()
 {
@@ -215,5 +220,5 @@ function lala()
     }, 2000)
 }
 
-lala()
+//lala()
 //window.localStorage.clear();

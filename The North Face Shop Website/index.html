@@ -11,7 +11,7 @@
 	<link rel="stylesheet" href="styles/footer.css">
 	<link rel="stylesheet" href="styles/background.css">
 	<link rel="stylesheet" href="styles/sing_in.css">
-	<link rel="stylesheet" href="css/users.css">
+	<link rel="stylesheet" href="styles/users.css">
 	<link rel="stylesheet" href="css/fontello.css">
 
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,13 +89,125 @@
 		
 	</div>
 	<div id="info_window"><h1></h1></div>
-
 	<div id = "profile_window">
-		<div id = "profile_window_container" class="pop_window">
-			<img src = "images/aye_icon.png"/>
+		<div class="pop_window">
+
+			<div id="profile_window_container">
+				
+				<button class="close-btn">
+					<line class="line1" ></line>
+					<line class="line2" ></line>
+				</button>
+	
+				<h3>Your profile</h3>
+				
+				<div id = "profile_window_content">
+					
+					<div id = "user_main_infos">
+						<div id="userimg">
+							<img src = ""/>
+							<br>
+							
+								<div id="profile_img_changer">
+									<button style = "visibility: hidden;" class = "buy_it_button" type="button">Change photo
+										<label for="upload_profile_img"></label>
+										<input style = "position: absolute; left:20px; opacity: 0.1%;" type="file" id="upload_profile_img" accept="image/jpeg, image/png, image/jpg">
+									</button>
+								</div>
+							
+							
+								
+							
+							
+							
+						</div>
+						
+						<div id="username_password">
+							<h1  class = "profile_window_header">Username</h1>
+							<button id= "username" class = "userinfo" style="float: left;">*username*</button>
+							<br>
+							<h1  class = "profile_window_header">Password</h1>
+							<button id = "password" class = "userinfo" style="float: left; ">*password*</button>
+							<!-- 
+							<input style=" position:absolute; visibility: hidden; color: black; width:250px; height:40px; border: 1px solid black;" type="text" placeholder="Type password*" id = "type_password_input"/>
+							<br>
+							<input style=" position:absolute; visibility: hidden; color: black; width:250px; height:40px; border: 1px solid black;" type="text" placeholder="Retype password*" id = "retype_password_input"/>
+							<br>
+							-->
+							
+							<button id = "change_password" style="visibility: hidden; margin-top: 35px;" class = "buy_it_button" type="button">Change password</button>
+						</div>
+					</div>
+					<div id = "user_clothes_infos">
+
+						<div id="gender">
+							<h1 style="float:left;" class="clothes_info_header" >Gender</h1>
+
+							<button id= "gender" class = "userinfo" style="float: left; margin-left: 100px; margin-top: 10px;">*gender*</button>
+
+
+							<input style="margin-left: 166px; visibility: hidden;" list="genders" name="genders" id="genders_list">
+							<datalist  id="genders">
+								<option value="Male"></option>
+								<option value="Female"></option>
+							</datalist>
+						</div>
+
+						<div id="shoesize">
+							<h1 style="float:left;" class="clothes_info_header" >Shoe size</h1>
+							
+							<button id= "shoesize" class = "userinfo" style=" margin-left: 100px; float: left; margin-top: 10px;">*shoesize*</button>
+
+							<input style="margin-left: 166px; visibility: hidden;" list="shoe_sizes" name="shoe_sizes" id="shoe_sizes_list">
+								<datalist id="shoe_sizes">
+									<option value="36"></option>
+									<option value="37"></option>
+									<option value="38"></option>
+									<option value="39"></option>
+									<option value="40"></option>
+									<option value="41"></option>
+									<option value="42"></option>
+									<option value="43"></option>
+									<option value="44"></option>
+									<option value="45"></option>
+									<option value="46"></option>
+									<option value="47"></option>
+									<option value="48"></option>
+									<option value="49"></option>	
+								</datalist>
+						</div>
+						<br>
+						<div id ="clothessize">
+							<h1 style="float:left;" class="clothes_info_header">Clothes size</h1>
+							<button id= "clothesszie" class = "userinfo" style="float: left; margin-left: 100px; margin-top: 10px;">*clotessize*</button>
+
+							<input style="margin-left: 166px ; visibility: hidden;" list="clothes_sizes" name="clothes_sizes" id="clothes_sizes_list">
+								<datalist  id="clothes_sizes">
+									<option value="XS">
+									<option value="S">
+									<option value="M">
+									<option value="L">
+									<option value="XL">
+									<option value="2XL"></option>
+								</datalist>
+						</div>
+
+					</div>
+
+					<div style = "padding: 20px;"  id = "user_window_buttons">
+						<button class = "buy_it_button" type="button" id = "edit_button">Edit </button>
+						<button style = "margin-left: 145px;"  class = "buy_it_button" type="button" id = "close_button">Cancel </button>
+						
+						<button style = "visibility: hidden;" class = "buy_it_button" type="button" id = "save_button">Save </button>
+					</div>
+				</div>
+			</div>
 		</div>
-		
+			
 	</div>
+	
+		
+	
 
 
 	<div id="sing_in_window">
