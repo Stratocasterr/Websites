@@ -20,7 +20,13 @@ const username_password = user_main_infos.querySelectorAll('input')
 var userinfo = Array.from(profile_window_content.querySelectorAll('.userinfo'))
 
 const change_password_button = user_main_infos.querySelector('#change_password')
+
+//user_window_buttons
 const edit_infos_button = profile_window_container.querySelector('#edit_button')
+const save_changes_btn = profile_window_container.querySelector('#save_button')
+const cancel_changes_btn = profile_window_container.querySelector('#cancel_button')
+
+//change photo
 const profile_img_changer = user_main_infos.querySelector('#profile_img_changer')
 const change_profile_img = profile_img_changer.querySelector('#upload_profile_img')
 
@@ -47,14 +53,6 @@ function change_img(element)
     }
     else alert("Adding images failed!")
 }
-    
-
-
-
-
-
-
-
 
 function open_profile_window()
 {
@@ -75,6 +73,12 @@ function close_profile_window()
 
 function edit_infos()
 {
+    
+    //user_window_buttons
+    $(edit_infos_button).css('visibility', 'hidden')
+    $(save_changes_btn).css('visibility', 'visible')
+    $(cancel_changes_btn).css('visibility', 'visible')
+
     userinfo_u = userinfo.filter(element => { return element.id != "username"})
     userinfo_up = userinfo_u.filter(element => { return element.id != "password"})
     const user_clothes_infos = profile_window_content.querySelector('#user_clothes_infos')
@@ -90,4 +94,5 @@ function edit_password()
     userinfo_password = userinfo.filter(element => { return element.id == "password"})[0]
     $(userinfo_password).css('visibility','hidden')
     username_password.forEach(input => {$(input).css('visibility','visible')})
+    console.log(username_password)
 }

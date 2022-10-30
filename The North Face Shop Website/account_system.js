@@ -17,12 +17,13 @@ const close_window_button = window_container.querySelector('.close-btn')
 const window_headline = window_container.querySelector('h3')
 
 /*create account*/
+const create_account_form = document.querySelector('#create_account')
 const profile_img_uploader = document.querySelector('#profile_img_uploader')
 const create_account_window_button = document.querySelector('#create_account_window_button')
 const create_account_button = document.querySelector('#create_account_button')
-const create_username_input = document.querySelector('#your_username_input')
-const create_password_input = document.querySelector('#type_password_input')
-const create_password_input_2 = document.querySelector('#retype_password_input')
+const create_username_input = create_account_form.querySelector('#your_username_input')
+const create_password_input = create_account_form.querySelector('#type_password_input')
+const create_password_input_2 = create_account_form.querySelector('#retype_password_input')
 const upload_profile_img = profile_img_uploader.querySelector('#upload_profile_img')
 const login_create_pop_window = sing_in_window.querySelector('.pop_window')
 
