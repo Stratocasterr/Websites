@@ -1,0 +1,81 @@
+#clouds
+{
+    position: relative;
+    top: 100px;
+    left: 0;
+   
+}
+
+#clouds > #backgroundL
+{
+    float: left;
+}
+
+#clouds > #backgroundR
+{
+    float: right;
+}
+
+#clouds > #backgroundM
+{
+    position: absolute;
+    left: 500px;
+}
+
+.background-clouds
+{
+    position: relative;
+    width:900px; 
+    height:700px;
+  
+    float: left;
+    
+}
+
+.middle-clouds
+{
+    position: absolute;
+    width:600px; 
+    height:400px;
+}
+
+#clouds > #middleL
+{
+    left: 100px;
+    top:250px;
+}
+
+#clouds > #middleR
+{
+    float: right;
+    top:200px;
+}
+
+.front-clouds
+{
+    position: absolute;
+}
+
+#clouds > #front1
+{
+    top:100px;
+    left:100px;
+}
+
+#clouds > #front2
+{
+    top:500px;
+    left:0;
+}
+
+#clouds > #front3
+{
+    top:0;
+    right: 200px;  
+}
+
+#clouds > #front4
+{
+    top:0;
+    right: 800px; 
+}

@@ -17,23 +17,20 @@
 {
     outline: 1px solid red;
    
-    transform: translateX(-1500px);
+    left: -1500px;
     transition: all 1.5s ease-in-out;
     top:0;
     
 }
 
 
-.huge_name.show
-{
-    transform: translateX(0);
-}
+
 
 #huge_name > #surname
 {
     outline: 1px solid green;
     
-    transform: translateX(1800px);
+    right: -1800px;
     transition: all 1.5s ease-in-out;
     top:450px;
 }
