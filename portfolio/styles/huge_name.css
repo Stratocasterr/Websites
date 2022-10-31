@@ -1,0 +1,39 @@
+#huge_name
+{
+    position: relative;
+}
+
+
+.huge_name
+{
+    font-size: 370px;
+    height: 450px;
+    width: 1500px;
+    position: absolute;
+   
+}
+
+#huge_name > #name
+{
+    outline: 1px solid red;
+   
+    transform: translateX(-1500px);
+    transition: all 1.5s ease-in-out;
+    top:0;
+    
+}
+
+
+.huge_name.show
+{
+    transform: translateX(0);
+}
+
+#huge_name > #surname
+{
+    outline: 1px solid green;
+    
+    transform: translateX(1800px);
+    transition: all 1.5s ease-in-out;
+    top:450px;
+}
