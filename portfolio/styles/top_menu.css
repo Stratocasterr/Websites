@@ -16,7 +16,7 @@ body
     width: var(--top_menu_width);
     height: var(--top_menu_height);
     outline: 1px solid black;
-    
+    position: relative;
 }
 
 #top_menu > #logo
@@ -28,16 +28,18 @@ body
 
 #top_menu > #logo > img
 {
-    
+   
     width: 100%;
     height: 100%;
 }
 
 #top_menu > #top_menu_buttons
 {
-    float: right;
+    
     outline:1px solid red;
     height: 100%;
+    position: absolute;
+    right: 0;
     transition: all 0.5s ease-in-out;
     
 }
@@ -90,10 +92,9 @@ body
 {
     background-color: white;
     width: 200px;
-    top:150px;
-    position: fixed;
+   
     transition: all 0.5s ease-in-out;
-    overflow: hidden;
+    
     
 }
 
