@@ -10,56 +10,91 @@
 {
     position: relative;
     top:55vw;
-    left:10vw;
-    outline: 1px solid black;
+    left:0;
+    
 }
 #content > #resp
 {
     position: absolute;
-    top:10%;
-    left:20%;
+    top:5vw;
+    left:1vw;
+    background-color: pink;
+    max-width: 40vw;
+    visibility: hidden;
 }
 
+#content > #resp > p
+{
+    float: left;
+    max-width: 30vw;
+}
+
+#content > #resp > img
+{
+    width: 10vw;
+    height: 15vh;
+}
 
 #content > #job
 {
     position: absolute;
     top:600px;
-    left:350px;
+    left:10vw;
+    background-color: pink;
+    max-width: 30vw;
+    visibility: hidden;
+}
+
+.job > img
+{
+    width: 5vw;
+    height: 8vh;
 }
 
 #content > #edu
 {
     position: absolute;
-    top:900px;
-    left:1200px;
+    top: 80vh;
+    left:50vw;
+    background-color: red;
+    visibility: hidden;
 }
+
+.edu > img
+{
+    width: 5vw;
+    height: 8vh;
+}
+
+#content > #projects
+{
+    position: relative;
+    top:20vh;
+    left:45vw;
+    max-width: 50vw;
+    font-size: 20px;
+    height: 40vh;
+    background-color: aliceblue;
+    visibility: hidden;
+}
+.project > img
+{
+   
+    width: 10vw;
+    height: 15vh;
+}
+.about_project
+{
+    font-size: 20px;
+    float: right;
+    max-width: 30vwdd;
+}
+
 #content > #hobby
 {
     position: absolute;
     top:1200px;
     left:400px;
+    visibility: hidden;
     
-}
-
-
-#content > #projects
-{
-    position: relative;
-    top:300px;
-    left:900px;
-    max-width: 40vw;
-    font-size: 20px;
-    height: 40vh;
-    outline: 1px solid red;
-}
-.project
-{
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-.about_project
-{
-    font-size: 20px;
 }

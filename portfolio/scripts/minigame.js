@@ -1,5 +1,5 @@
 
-
+const pop_content = document.querySelectorAll('.pop_content')
 const canvas = document.querySelector('#minigame')
 const minigame = canvas.getContext('2d')
 
@@ -48,6 +48,7 @@ function animate()
     else if(keys.left_pressed) player.velocity.x = -25
     else player.velocity.x = 0
 
+    pop_content.forEach(content => $(content).css('visibility','hidden'))
     // platform
     platforms.forEach((platform) => 
 
@@ -56,7 +57,9 @@ function animate()
         if(check_collision(player, platform))
         {
             player.velocity.y = 0
-            console.log(platform.id)
+            var show_platform_info = document.querySelector('#' + platform.id+'')
+            //console.log(show_platform_info)
+            $(show_platform_info).css('visibility','visible')
         }
        
     })
@@ -110,9 +113,9 @@ window.addEventListener('keyup', ({ keyCode }) =>
 function check_collision(player, platform)
 {
     if(player.position.y + player.height >= platform.position.y - player.velocity.y
-        & player.position.y + player.height <= platform.position.y + player.velocity.y
+        & player.position.y + player.height <= platform.position.y 
             & player.position.x + player.width >= platform.position.x 
-                & player.position.x < platform.position.x + platform.width )
+                & player.position.x <= platform.position.x + platform.width )
                 return true
     else return false
 }
