@@ -4,12 +4,10 @@
 	<meta charset="utf-8">
 	<title>Kacper Wolanski</title>
 	<meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
-    
 	<link rel="stylesheet" href="styles/top_menu.css">
     <link rel="stylesheet" href="styles/huge_name.css">
     <link rel="stylesheet" href="styles/clouds.css">
-
-
+    <link rel="stylesheet" href="styles/minigame.css">
 </head>
 
 <body>
@@ -22,16 +20,24 @@
             <button type = "button" class="top_menu_button">Work</button>
             <button type = "button" class="top_menu_button">Projects</button>
         </div>
-        <button type="button" id="open_site_menu">Open site menu</button>
+        <button type="button" id="open_site_menu"><img src = "images/options.png"/></button>
     </div>
 
     <div id = "site_menu">
         <div id = "site_menu_btns">
             <button type = "button" class="site_menu_button">Education</button>
+            <br>
             <button type = "button" class="site_menu_button">Work</button>
+            <br>
             <button type = "button" class="site_menu_button">Projects</button>
         </div>
     </div>	
+
+    <div id="top_clouds">
+        <img class="front-clouds" id="small-top_cloud1" src ="giffs/clouds1.gif"/>
+        <img class="front-clouds" id="small-top_cloud2" src ="giffs/clouds1.gif"/>
+        <img class="middle-clouds" id="middle-top_clouds" src ="giffs/clouds1.gif"/>
+    </div>
 
     <div id ="scroll_down">
         <img src = "giffs/scrolldown.gif"/>
@@ -39,25 +45,19 @@
 
     <div id="clouds">
         <div id="clouds_groupL">
-
+            <img id = "backgroundL" class = "background-clouds"  src ="giffs/clouds1.gif"/>
+            <img id = "backgroundM" class = "background-clouds"  src ="giffs/clouds1.gif"/>
+            <img id = "middleL" class="middle-clouds" src ="giffs/clouds1.gif"/>
+            <img id = "front1" class="front-clouds" src ="giffs/clouds1.gif"/>
+            <img id = "front2" class="front-clouds" src ="giffs/clouds1.gif"/>
         </div>
 
         <div id="clouds_groupR">
-            
+            <img id = "backgroundR"class = "background-clouds"  src ="giffs/clouds1.gif"/>
+            <img id = "middleR" class="middle-clouds" src ="giffs/clouds1.gif"/>
+            <img id = "front3" class="front-clouds" src ="giffs/clouds1.gif"/>
+            <img id = "front4" class="front-clouds" src ="giffs/clouds1.gif"/>
         </div>
-        
-        <img id = "backgroundL" class = "background-clouds"  src ="giffs/clouds1.gif"/>
-        <img id = "backgroundM" class = "background-clouds"  src ="giffs/clouds1.gif"/>
-        <img id = "backgroundR"class = "background-clouds"  src ="giffs/clouds1.gif"/>
-        
-        <img id = "middleL" class="middle-clouds" src ="giffs/clouds1.gif"/>
-        <img id = "middleR" class="middle-clouds" src ="giffs/clouds1.gif"/>
-
-        <img id = "front1" class="front-clouds" src ="giffs/clouds1.gif"/>
-        <img id = "front2" class="front-clouds" src ="giffs/clouds1.gif"/>
-        <img id = "front3" class="front-clouds" src ="giffs/clouds1.gif"/>
-        <img id = "front4" class="front-clouds" src ="giffs/clouds1.gif"/>
-      
     </div>
 
     <div id ="huge_name">
@@ -70,8 +70,52 @@
         </div>
     </div>
 
+    
+    <canvas id ="minigame"></canvas>
+
+    <div id="content">
+        con
+        <div id="resp">resp</div>
+        <div id="projects">
+
+            <h1>My projects</h1>
+            <div class="project" id="paintingwall">
+                <h2>Painting wall</h2>
+                <img src=""/>
+                <span class="about_project">
+                    ipsum dolor sit amet consectetur adipisicing elit. Iste rerum incidunt quos mollitia distinctio sequi eligendi reprehenderit nisi voluptate quia.</div>
+                </span> 
+            </div>
+            <br>
+            <div class="project" id="tnf">
+                <h2>tnf website</h2>
+                <img src=""/>
+                <span class="about_project">
+                    ipsueverum incidunt quos mollitia distinctio sequi eligendi reprehenderit nisi voluptate quia.</div>
+                </span> 
+            </div>
+            <br>
+            <div class="project" id="tatryguide">
+                <h2>tatry guide</h2>
+                <img src=""/>
+                <span class="about_project">
+                    ipsum dolor sit amet consecetio sequi eligendi reprehenderit nisi voluptate quia.</div>
+                </span> 
+            </div>
+
+
+           
+        </div>
+        <div id="job">job</div>
+        <div id="edu">edu</div>
+        <div id="hobby">hobby</div>
+
+    </div>
     <script src="scripts/jquery.js"></script>
 	<script src = "scripts/top_menu.js"></script>
     <script src = "scripts/huge_name.js"></script>
+    <script src = "scripts/Player.js"></script>
+    <script src = "scripts/Platform.js"></script>
+    <script src = "scripts/minigame.js"></script>
 </body>
 </html>

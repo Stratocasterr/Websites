@@ -2,32 +2,51 @@
 {
     position: relative;
     top: 100px;
-    left: 0;
-   
+    left: 150px;
 }
 
-#clouds > #backgroundL
+#clouds_groupL
+{
+    position: relative;
+    top: 0;
+    left: 0;
+    left: -1500px;
+    transition: all 0.7s ease-in-out;
+}
+
+
+#clouds_groupR
+{
+    position: relative;
+    top: 50px;
+    
+    transition: all 0.7s ease-in-out;
+    left:100vw;
+}
+
+#clouds_groupL > #backgroundL
 {
     float: left;
 }
 
-#clouds > #backgroundR
+#backgroundR
 {
     float: right;
+    position: absolute;
+    top:0;
+    left:0;
 }
 
-#clouds > #backgroundM
+#clouds_groupL > #backgroundM
 {
-    position: absolute;
-    left: 500px;
+    margin:200px ;
 }
 
 .background-clouds
 {
-    position: relative;
-    width:900px; 
-    height:700px;
-  
+    position: absolute;
+    width: 39vw;
+    height: 27vw;
     float: left;
     
 }
@@ -35,20 +54,20 @@
 .middle-clouds
 {
     position: absolute;
-    width:600px; 
-    height:400px;
+    width: 25vw;
+    height: 18vw;
 }
 
-#clouds > #middleL
+#middleL
 {
     left: 100px;
     top:250px;
 }
 
-#clouds > #middleR
+ #middleR
 {
     float: right;
-    top:200px;
+    top:20vw;
 }
 
 .front-clouds
@@ -56,26 +75,73 @@
     position: absolute;
 }
 
-#clouds > #front1
+#clouds_groupL > #front1
 {
     top:100px;
-    left:100px;
+    left:-100px;
 }
 
-#clouds > #front2
+#clouds_groupL > #front2
 {
-    top:500px;
-    left:0;
+    top: 25vw;
+    left: -7vw;
 }
 
-#clouds > #front3
-{
-    top:0;
-    right: 200px;  
-}
-
-#clouds > #front4
+#clouds_groupR > #front3
 {
     top:0;
-    right: 800px; 
+    left:500px;  
+}
+
+#clouds_groupR > #front4
+{
+    top:0;
+    right: 1000px; 
+}
+
+/*L*/
+#small-top_cloud1
+{
+    position: absolute;
+    left: -50%;
+    top:300px;
+    z-index: -1;
+    animation: left-to-right 40s ease-in forwards infinite alternate;
+}
+
+@keyframes left-to-right
+{
+    100%
+    {
+        transform: translateX(1200%);
+    }
+}
+
+
+/*R*/
+#small-top_cloud2
+{
+    position: absolute;
+    right: -50%;
+    top:120px;
+    z-index: -1;
+    animation: right-to-left 40s ease-in forwards infinite alternate;
+}
+
+#middle-top_clouds
+{
+    position: absolute;
+    right: -24%;
+    top:200px;
+    z-index: -1;
+    animation: right-to-left 45s ease-in forwards infinite alternate;
+}
+
+
+@keyframes right-to-left
+{
+    100%
+    {
+        transform: translateX(-830%);
+    }
 }

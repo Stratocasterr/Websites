@@ -1,36 +1,32 @@
 #huge_name
 {
     position: relative;
+    top:3vw;
 }
-
 
 .huge_name
 {
-    font-size: 370px;
-    height: 450px;
-    width: 1500px;
+    height: 26vw;
+    width:90vw;
     position: absolute;
-   
+    font-size: 18vw;
 }
 
 #huge_name > #name
 {
     outline: 1px solid red;
-   
     left: -1500px;
-    transition: all 1.5s ease-in-out;
+    transition: all 0.7s ease-in-out;
     top:0;
-    
+    width: 80%;
 }
-
-
-
 
 #huge_name > #surname
 {
-    outline: 1px solid green;
-    
+    outline: 1px solid gray;
     right: -1800px;
-    transition: all 1.5s ease-in-out;
-    top:450px;
+    transition: all 0.7s ease-in-out;
+    top: 26vw;
+    width: 80%;
+    float: right;
 }
