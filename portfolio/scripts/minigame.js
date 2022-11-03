@@ -44,22 +44,36 @@ function animate()
     player.update()
 
     // moving L/R
-    if(keys.right_pressed) player.velocity.x = 25
-    else if(keys.left_pressed) player.velocity.x = -25
+    if(keys.right_pressed) player.velocity.x = 15
+    else if(keys.left_pressed) player.velocity.x = -15
     else player.velocity.x = 0
 
-    pop_content.forEach(content => $(content).css('visibility','hidden'))
+    //pop_content.forEach(content => $(content).css('visibility','hidden'))
     // platform
     platforms.forEach((platform) => 
-
     {
         platform.draw()
+        
         if(check_collision(player, platform))
         {
             player.velocity.y = 0
-            var show_platform_info = document.querySelector('#' + platform.id+'')
+            player.velocity.jump = 0
+            
+            //var collide_platform_index = platforms.indexOf(platform)
+
+
+
+            var collide_platform = document.querySelector('#' + platform.id+'')
             //console.log(show_platform_info)
-            $(show_platform_info).css('visibility','visible')
+            $(collide_platform).css('visibility','visible')
+            
+        }
+        else 
+        {
+            pop_content.forEach(content => 
+                {
+                  if(content.id == platform.id) $(content).css('visibility','hidden')
+                })
         }
        
     })
@@ -116,6 +130,6 @@ function check_collision(player, platform)
         & player.position.y + player.height <= platform.position.y 
             & player.position.x + player.width >= platform.position.x 
                 & player.position.x <= platform.position.x + platform.width )
-                return true
+                return platform
     else return false
 }
