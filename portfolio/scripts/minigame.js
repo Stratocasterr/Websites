@@ -6,21 +6,12 @@ const minigame = canvas.getContext('2d')
 canvas.width =  window.innerWidth
 canvas.height = 2* window.innerHeight
 
-var gravity = 0.5
-
-
 var platforms = []
-
-
 const RESPplatform = new Platform(190, 600, "resp")
 const PROJECTSplatform = new Platform(1000, 800, "projects")
 const JOBplatform = new Platform(250, 1150, "job")
 const EDUplatform = new Platform(1100, 1400, "edu")
 const HOBBYplatform = new Platform(300, 1700, "hobby")
-
-
-
-const player = new Player()
 
 platforms.push(RESPplatform)
 platforms.push(PROJECTSplatform)
@@ -28,9 +19,8 @@ platforms.push(JOBplatform)
 platforms.push(EDUplatform)
 platforms.push(HOBBYplatform)
 
-
-
-
+var gravity = 0.5
+const player = new Player()
 const keys =
 {
     right_pressed: false,
@@ -43,11 +33,10 @@ var platforms_cords = []
 platforms.forEach(platform =>
     {
         platforms_cords.push([platform.position.x, platform.position.y])
-        
     })
 
-
 create_minigame_clouds(platforms_cords, platforms)
+animate()
 
 function animate()
 {
@@ -68,11 +57,17 @@ function animate()
         platform.draw()
         if(check_collision(player, platform))
         {
+            // stop player
             collision = true
             player.velocity.y = 0
-            var collide_platform = document.querySelector('#' + platform.id+'')
-            $(collide_platform).css('opacity','1')
-           
+            var collide_platform_content = document.querySelector('#' + platform.id+'')
+            $(collide_platform_content).css('opacity','1')
+
+            //collide content background clouds
+            const content_background_clouds = minigame_clouds.querySelectorAll('#' + platform.id+'')
+            $(content_background_clouds[0]).css('transform','translate(150px, 150px)')
+            $(content_background_clouds[1]).css('transform','translate(-100px, 150px)')
+            
             var new_pop_content = []
             pop_content.forEach(content => 
                 {
@@ -84,11 +79,20 @@ function animate()
 
     if(!collision) 
     {
+        // hide background
+        platforms.forEach(platform =>
+            {
+                const content_background_clouds = minigame_clouds.querySelectorAll('#' + platform.id+'')
+                $(content_background_clouds[0]).css('transform','none')
+                $(content_background_clouds[1]).css('transform','none')
+            })
+            
+        // hide content
         pop_content.forEach(content => {$(content).css('opacity','0')})
     }
 }
 
-animate()
+
 
 window.addEventListener('keydown', ({ keyCode }) => 
 {
@@ -141,9 +145,10 @@ function check_collision(player, platform)
     else return false
 }
 
-console.log(platforms_cords)
+
 function create_minigame_clouds(platforms_cords, platforms)
 {
+    var cloud = ''
     var clouds = ''
     for(i=0 ; i < platforms_cords.length ; i++)
     {
@@ -152,16 +157,20 @@ function create_minigame_clouds(platforms_cords, platforms)
             top:`+platforms_cords[i][1] +`px;
             left:`+platforms_cords[i][0] +`px;
         `
-        clouds +=   `
+
+        cloud =   `
             <img id = ` + platforms[i].id + ` 
             class="background-clouds" 
             style = "`+ cloud_style +`" 
             src ="giffs/clouds1.gif"/>
         `
-          
-    
+        
+        clouds += cloud + cloud + cloud
+        //console.log(clouds)
+        //
     }
-    console.log(clouds)
+    
+    //console.log(clouds)
     minigame_clouds.innerHTML = clouds
 }
 

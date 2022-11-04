@@ -48,7 +48,7 @@
     width: 39vw;
     height: 27vw;
     float: left;
-    
+    transition: all 0.7s ease-in-out;
 }
 
 .middle-clouds
@@ -150,7 +150,15 @@
 #minigame_clouds
 {
     position: absolute;
+    z-index: -1;
     top:-720px;
-    left:-100px;
-   
+    left:-100px;  
+}
+
+@keyframes extend_clouds
+{
+    100%
+    {
+        
+    }
 }
