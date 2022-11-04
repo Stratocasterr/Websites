@@ -145,3 +145,12 @@
         transform: translateX(-830%);
     }
 }
+
+
+#minigame_clouds
+{
+    position: absolute;
+    top:-720px;
+    left:-100px;
+   
+}

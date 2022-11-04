@@ -8,7 +8,7 @@ class Platform
             y:y
             
         }
-        this.width = canvas.width / 5
+        this.width = canvas.width / 3
         this.height = canvas.height / 20
         this.id = id
     }
