@@ -12,7 +12,7 @@ const minigame_instru = document.querySelector('#instruction')
 const minigame_overlay = document.querySelector('#minigame_overlay')
 const minigame_content = document.querySelector('canvas')
 const minigame_canvas = document.querySelector('#content')
-var start_minigame = false
+var start_minigame = true
 
 
 var huge_name_x_pos = huge_name.getBoundingClientRect().left;
@@ -24,7 +24,7 @@ window.onscroll = function()
 
     var huge_name_x_pos = huge_name.getBoundingClientRect().left;
     var huge_surname_x_pos = huge_surname.getBoundingClientRect().left;
- 
+    console.log(start_minigame)
     console.log(window.scrollY)
     if (oldScrollY > 10)
     {
@@ -54,12 +54,15 @@ window.onscroll = function()
     
         if(window.scrollY > 1100 && !start_minigame)
         {
-
             $(minigame_overlay).css('opacity','0.8')
             $(minigame_instru).css('opacity','1')
-            
-            
-        }                                
+        }        
+
+        if(window.scrollY > 3000)    
+        {
+            console.log(1)
+
+        }                 
     }
     
     oldScrollY = window.scrollY;

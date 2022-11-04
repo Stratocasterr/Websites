@@ -7,11 +7,11 @@ canvas.width =  window.innerWidth
 canvas.height = 2* window.innerHeight
 
 var platforms = []
-const RESPplatform = new Platform(190, 600, "resp")
-const PROJECTSplatform = new Platform(1000, 800, "projects")
-const JOBplatform = new Platform(250, 1150, "job")
-const EDUplatform = new Platform(1100, 1400, "edu")
-const HOBBYplatform = new Platform(300, 1700, "hobby")
+const RESPplatform = new Platform(190, 600, "About_me")
+const PROJECTSplatform = new Platform(1000, 800, "My_projects")
+const JOBplatform = new Platform(250, 1150, "Job_experience")
+const EDUplatform = new Platform(1100, 1400, "My_education")
+const HOBBYplatform = new Platform(300, 1700, "My_interests")
 
 platforms.push(RESPplatform)
 platforms.push(PROJECTSplatform)
@@ -168,12 +168,12 @@ function create_minigame_clouds(platforms_cords, platforms)
 {
     var cloud = ''
     var clouds = ''
-    var signs = ''
+    var header = ''
     for(i=0 ; i < platforms_cords.length ; i++)
     {
-        var sign_style = `
-            top:`+platforms_cords[i][1] +`px;
-            left:`+platforms_cords[i][0] +`px;
+        var header_style = `
+            top:`+ parseInt(platforms_cords[i][1]+ 200)  +`px;
+            left:`+ parseInt(platforms_cords[i][0]+ 200)  +`px;
             
         `
         var cloud_style = `
@@ -186,13 +186,8 @@ function create_minigame_clouds(platforms_cords, platforms)
             style = "`+ cloud_style +`" 
             src ="giffs/clouds1.gif"/>
         `    
-        signs += `
-            <img id = "sign_` + platforms[i].id + `" 
-            class="sign" 
-            style = "`+ sign_style +`" 
-            src ="images/sign2.png"/>
-        `
-        clouds += cloud + cloud + cloud
+        header = `<div style = "`+ header_style +`" class = "cloud_header">`+ platforms[i].id.replace('_', ' ') +`</div>`
+        clouds += cloud + cloud + cloud + header
     }
     minigame_clouds.innerHTML = clouds 
     console.log(minigame_clouds.innerHTML)

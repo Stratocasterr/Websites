@@ -88,7 +88,7 @@
     max-width: 30vw;
 }
 
-#content > #resp
+#content > #About_me
 {
     position: absolute;
     top:5vw;
@@ -102,19 +102,19 @@
     
 }
 
-#content > #resp > p
+#content > #About_me > p
 {
     float: left;
     max-width: 30vw;
 }
 
-#content > #resp > img
+#content > #About_me > img
 {
     width: 10vw;
     height: 15vh;
 }
 
-#content > #job
+#content > #Job_experience
 {
     position: absolute;
     top:600px;
@@ -133,7 +133,7 @@
     height: 8vh;
 }
 
-#content > #edu
+#content > #My_education
 {
     position: absolute;
     top: 80vh;
@@ -151,7 +151,7 @@
     height: 8vh;
 }
 
-#content > #projects
+#content > #My_projects
 {
     position: relative;
     top:20vh;
@@ -178,7 +178,7 @@
     max-width: 30vw;
 }
 
-#content > #hobby
+#content > #My_interests
 {
     position: absolute;
     top:1200px;
@@ -191,3 +191,9 @@
 }
 
  
+.cloud_header
+{
+    font-size: 40px;
+    color: blue;
+    position: absolute;
+}
