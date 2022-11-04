@@ -7,6 +7,14 @@ const clouds = document.querySelector('#clouds')
 const clouds_groupL = clouds.querySelector('#clouds_groupL')
 const clouds_groupR = clouds.querySelector('#clouds_groupR')
 
+// minigame
+const minigame_instru = document.querySelector('#instruction')
+const minigame_overlay = document.querySelector('#minigame_overlay')
+const minigame_content = document.querySelector('canvas')
+const minigame_canvas = document.querySelector('#content')
+var start_minigame = false
+
+
 var huge_name_x_pos = huge_name.getBoundingClientRect().left;
 var huge_surname_x_pos = huge_surname.getBoundingClientRect().left;
 var oldScrollY = window.scrollY;
@@ -44,7 +52,14 @@ window.onscroll = function()
             $(clouds_groupR).css('transform','translateX(1100px)')
         }
     
-                                    
+        if(window.scrollY > 1100 && !start_minigame)
+        {
+
+            $(minigame_overlay).css('opacity','0.8')
+            $(minigame_instru).css('opacity','1')
+            
+            
+        }                                
     }
     
     oldScrollY = window.scrollY;

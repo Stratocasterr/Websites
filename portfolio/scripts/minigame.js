@@ -102,6 +102,7 @@ function animate()
 
 window.addEventListener('keydown', ({ keyCode }) => 
 {
+    
     switch (keyCode)
     {
         case 65:                    //left
@@ -116,6 +117,18 @@ window.addEventListener('keydown', ({ keyCode }) =>
                 keys.jump_pressed = true
                 player.velocity.jump = 25
                 break
+            }
+        case 83:                    //hide minigame instru
+            {
+                if(window.scrollY > 1100)
+                {
+                    $(minigame_content).css('opacity','1')
+                    $(minigame_canvas).css('opacity','1')
+                    $(minigame_overlay).css('opacity','0')
+                    $(minigame_instru).css('opacity','0')
+                    start_minigame = true
+                }
+               
             }
 
     }
@@ -155,8 +168,14 @@ function create_minigame_clouds(platforms_cords, platforms)
 {
     var cloud = ''
     var clouds = ''
+    var signs = ''
     for(i=0 ; i < platforms_cords.length ; i++)
     {
+        var sign_style = `
+            top:`+platforms_cords[i][1] +`px;
+            left:`+platforms_cords[i][0] +`px;
+            
+        `
         var cloud_style = `
             top:`+platforms_cords[i][1] +`px;
             left:`+platforms_cords[i][0] +`px;
@@ -167,8 +186,15 @@ function create_minigame_clouds(platforms_cords, platforms)
             style = "`+ cloud_style +`" 
             src ="giffs/clouds1.gif"/>
         `    
+        signs += `
+            <img id = "sign_` + platforms[i].id + `" 
+            class="sign" 
+            style = "`+ sign_style +`" 
+            src ="images/sign2.png"/>
+        `
         clouds += cloud + cloud + cloud
     }
-    minigame_clouds.innerHTML = clouds
+    minigame_clouds.innerHTML = clouds 
+    console.log(minigame_clouds.innerHTML)
 }
 

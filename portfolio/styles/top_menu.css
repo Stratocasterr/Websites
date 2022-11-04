@@ -8,7 +8,9 @@ body
     height: 600vh;
     padding: 20px;
     overflow-x: hidden;
-    overflow-anchor: none
+    overflow-anchor: none;
+    transition: all 1s ease-in-out;
+    position: relative;
 }
 
 #top_menu
