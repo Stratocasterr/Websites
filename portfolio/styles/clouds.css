@@ -151,14 +151,37 @@
 {
     position: absolute;
     z-index: -1;
-    top:-720px;
+    top:-750px;
     left:-100px;  
 }
 
-@keyframes extend_clouds
+@keyframes ball_effect
 {
+    0%
+    {
+        transform: translateY(0);
+    }
+
+    20%
+    {
+        transform: translateY(8%);
+    }
+
+    40%
+    {
+        transform: translateY(-8%);
+    }
+    60%
+    {
+        transform: translateY(3%);
+    }
+    80%
+    {
+        transform: translateY(-3%);
+    }
     100%
     {
-        
+        transform: translateY(0);
     }
+
 }

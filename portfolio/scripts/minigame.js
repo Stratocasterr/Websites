@@ -54,7 +54,7 @@ function animate()
     collision = false
     platforms.forEach((platform) => 
     {
-        platform.draw()
+        //platform.draw()
         if(check_collision(player, platform))
         {
             // stop player
@@ -62,12 +62,18 @@ function animate()
             player.velocity.y = 0
             var collide_platform_content = document.querySelector('#' + platform.id+'')
             $(collide_platform_content).css('opacity','1')
+            $(collide_platform_content).css('height','500px')
 
-            //collide content background clouds
+            // collide content background clouds
             const content_background_clouds = minigame_clouds.querySelectorAll('#' + platform.id+'')
             $(content_background_clouds[0]).css('transform','translate(150px, 150px)')
             $(content_background_clouds[1]).css('transform','translate(-100px, 150px)')
-            
+
+            // ball effect
+            $(content_background_clouds[2]).css('animation','ball_effect 0.4s ease-in ')
+
+           
+           
             var new_pop_content = []
             pop_content.forEach(content => 
                 {
@@ -85,14 +91,14 @@ function animate()
                 const content_background_clouds = minigame_clouds.querySelectorAll('#' + platform.id+'')
                 $(content_background_clouds[0]).css('transform','none')
                 $(content_background_clouds[1]).css('transform','none')
+                $(content_background_clouds[2]).css('animation','none')
             })
-            
+
         // hide content
         pop_content.forEach(content => {$(content).css('opacity','0')})
+        pop_content.forEach(content => {$(content).css('height','0')})
     }
 }
-
-
 
 window.addEventListener('keydown', ({ keyCode }) => 
 {
@@ -145,32 +151,24 @@ function check_collision(player, platform)
     else return false
 }
 
-
 function create_minigame_clouds(platforms_cords, platforms)
 {
     var cloud = ''
     var clouds = ''
     for(i=0 ; i < platforms_cords.length ; i++)
     {
-
         var cloud_style = `
             top:`+platforms_cords[i][1] +`px;
             left:`+platforms_cords[i][0] +`px;
         `
-
         cloud =   `
             <img id = ` + platforms[i].id + ` 
             class="background-clouds" 
             style = "`+ cloud_style +`" 
             src ="giffs/clouds1.gif"/>
-        `
-        
+        `    
         clouds += cloud + cloud + cloud
-        //console.log(clouds)
-        //
     }
-    
-    //console.log(clouds)
     minigame_clouds.innerHTML = clouds
 }
 
