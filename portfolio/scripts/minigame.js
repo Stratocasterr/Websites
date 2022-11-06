@@ -1,5 +1,8 @@
 const minigame_clouds = document.querySelector('#minigame_clouds')
 var pop_content = document.querySelectorAll('.pop_content')
+
+
+
 const canvas = document.querySelector('#minigame')
 const minigame = canvas.getContext('2d')
 
@@ -52,6 +55,8 @@ function animate()
 
     // platform
     collision = false
+
+    const headers = minigame_clouds.querySelectorAll('.cloud_header')
     platforms.forEach((platform) => 
     {
         //platform.draw()
@@ -72,8 +77,10 @@ function animate()
             // ball effect
             $(content_background_clouds[2]).css('animation','ball_effect 0.4s ease-in ')
 
-           
-           
+            // hide clouds headers
+            
+            headers.forEach(header => {if(header.id == platform.id) 
+                                            $(header).css('opacity','0')})
             var new_pop_content = []
             pop_content.forEach(content => 
                 {
@@ -97,12 +104,14 @@ function animate()
         // hide content
         pop_content.forEach(content => {$(content).css('opacity','0')})
         pop_content.forEach(content => {$(content).css('height','0')})
+
+        // show clouds headers
+        headers.forEach(header => {$(header).css('opacity','0.3')})
     }
 }
 
 window.addEventListener('keydown', ({ keyCode }) => 
 {
-    
     switch (keyCode)
     {
         case 65:                    //left
@@ -128,9 +137,7 @@ window.addEventListener('keydown', ({ keyCode }) =>
                     $(minigame_instru).css('opacity','0')
                     start_minigame = true
                 }
-               
             }
-
     }
 })
 
@@ -173,7 +180,7 @@ function create_minigame_clouds(platforms_cords, platforms)
     {
         var header_style = `
             top:`+ parseInt(platforms_cords[i][1]+ 200)  +`px;
-            left:`+ parseInt(platforms_cords[i][0]+ 200)  +`px;
+            left:`+ parseInt(platforms_cords[i][0]+ 300)  +`px;
             
         `
         var cloud_style = `
@@ -186,10 +193,85 @@ function create_minigame_clouds(platforms_cords, platforms)
             style = "`+ cloud_style +`" 
             src ="giffs/clouds1.gif"/>
         `    
-        header = `<div style = "`+ header_style +`" class = "cloud_header">`+ platforms[i].id.replace('_', ' ') +`</div>`
+        header = `<div id = "`+ platforms[i].id + `" style = "`+ header_style +`" class = "cloud_header">`+ platforms[i].id.replace('_', ' ') +`</div>`
         clouds += cloud + cloud + cloud + header
     }
     minigame_clouds.innerHTML = clouds 
-    console.log(minigame_clouds.innerHTML)
 }
 
+const myprojects = document.querySelectorAll('.project')
+const myprojects_images =[]
+const myprojects_contents = []
+able_to_see_project = true
+
+myprojects.forEach((project) => 
+{
+    myprojects_images.push(project.querySelector('img'))
+    myprojects_contents.push(project.querySelector('.content'))
+})
+
+close_content_btns = []
+myprojects_contents.forEach((content) => 
+{
+    console.log(content)
+    content.querySelector('img').addEventListener("click", () =>
+    {
+        $(content).css('opacity','0')
+        $(content).css('visibility','hidden')
+        myprojects_images.forEach((img) => 
+        {
+            $(img).css('opacity','1')
+            $(img).css('transform', 'scale(1)')
+            $(img).css('cursor', 'default')
+        })
+        able_to_see_project = true
+    })
+})
+
+myprojects_images.forEach((image) => 
+{
+    //$(image).css('animation', 'move_up_down 5s ease-in-out forwards infinite alternate')
+    
+        image.addEventListener("mouseover", (image) => 
+        {
+            if(able_to_see_project)
+            {       
+                $(image.target).css('animation', 'pulse_moves 1s ease-in-out forwards infinite alternate')
+                $(image.target).css('cursor', 'pointer')
+                $(image.target).css('box-shadow', '0px 0px 67px -12px rgba(20, 20, 20, 1)')
+            }
+        })
+
+        image.addEventListener("mouseleave", (image) => 
+        {
+            $(image.target).css('animation', 'none')
+            $(image.target).css('box-shadow', 'none')
+            
+        })
+
+        image.addEventListener("click", (image) => 
+        {
+            if(able_to_see_project)
+            {
+                able_to_see_project = false
+                image_opacity = window.getComputedStyle(image.target).getPropertyValue("opacity");
+                if(image_opacity)
+                {
+                    $(image.target).css('transform', 'scale(3)')
+                    $(image.target).css('box-shadow', 'none')
+                    $(image.target).css('opacity', '0')
+                    img_index = myprojects_images.indexOf(image.target)
+                    myprojects_contents.forEach((content) => 
+                    {
+                        console.log(img_index, myprojects_contents.indexOf(content))
+                        if( img_index == myprojects_contents.indexOf(content)) 
+                        {
+                            $(content).css('opacity', '1')
+                            $(content).css('z-index', '3')
+                            $(content).css('visibility','visible')
+                        }  
+                    })
+                }
+            }   
+        })
+})

@@ -24,8 +24,8 @@ window.onscroll = function()
 
     var huge_name_x_pos = huge_name.getBoundingClientRect().left;
     var huge_surname_x_pos = huge_surname.getBoundingClientRect().left;
-    console.log(start_minigame)
-    console.log(window.scrollY)
+    //console.log(start_minigame)
+    //console.log(window.scrollY)
     if (oldScrollY > 10)
     {
 
@@ -60,7 +60,7 @@ window.onscroll = function()
 
         if(window.scrollY > 3000)    
         {
-            console.log(1)
+            //console.log(1)
 
         }                 
     }

@@ -24,11 +24,9 @@
     position: fixed;
     margin-top: -100vh;
     margin-left:-50px;
-    
     width: 200vw;
     height: 200vh;
     transition: all 0.8s ease-in-out;
-    
 }
 
 #instruction
@@ -36,7 +34,7 @@
     position: absolute;
     top:140vh;
     left: 50vw;
-    z-index: 12;
+    z-index: 1;
     opacity: 0;
     transition: all 0.8s ease-in-out;
 }
@@ -65,7 +63,6 @@
     animation: pulse_moves 1s ease-in-out forwards infinite alternate;
 }
 
-
 @keyframes pulse_moves
 {
     0%
@@ -78,6 +75,7 @@
         scale:1.2;
     }
 }
+
 #instruction > #instruction_text
 {
     position: relative;
@@ -88,112 +86,15 @@
     max-width: 30vw;
 }
 
-#content > #About_me
-{
-    position: absolute;
-    top:5vw;
-    left:1vw;
-    
-    max-width: 40vw;
-    opacity: 0;
-    transition: all 0.6s ease-in-out;
-    height: 0;
-    overflow: hidden;
-    
-}
-
-#content > #About_me > p
-{
-    float: left;
-    max-width: 30vw;
-}
-
-#content > #About_me > img
-{
-    width: 10vw;
-    height: 15vh;
-}
-
-#content > #Job_experience
-{
-    position: absolute;
-    top:600px;
-    left:10vw;
-    background-color: pink;
-    max-width: 30vw;
-    opacity: 0;
-    transition: all 0.6s ease-in-out;
-    height: 0;
-    overflow: hidden;
-}
-
-.job > img
-{
-    width: 5vw;
-    height: 8vh;
-}
-
-#content > #My_education
-{
-    position: absolute;
-    top: 80vh;
-    left:50vw;
-    background-color: red;
-    opacity: 0;
-    transition: all 0.6s ease-in-out;
-    height: 0;
-    overflow: hidden;
-}
-
-.edu > img
-{
-    width: 5vw;
-    height: 8vh;
-}
-
-#content > #My_projects
-{
-    position: relative;
-    top:20vh;
-    left:45vw;
-    max-width: 50vw;
-    font-size: 20px;
-    height: 40vh;
-    background-color: aliceblue;
-    opacity: 0;
-    transition: all 0.6s ease-in-out;
-    height: 0;
-    overflow: hidden;
-}
-.project > img
-{
-   
-    width: 10vw;
-    height: 15vh;
-}
-.about_project
-{
-    font-size: 20px;
-    float: right;
-    max-width: 30vw;
-}
-
-#content > #My_interests
-{
-    position: absolute;
-    top:1200px;
-    left:400px;
-    
-    opacity: 0;
-    transition: all 0.6s ease-in-out;
-    height: 0;
-    overflow: hidden;
-}
-
- 
 .cloud_header
 {
-    font-size: 40px;
-    color: blue;
+    font-size: 50px;
+    opacity: 0.3;
+    font-weight: 600;
+    color: rgb(19, 38, 54);
     position: absolute;
+    transition: all 0.6s ease-in-out;
+    font-family: 'Rubik Puddles', cursive;
+    animation: pulse_moves 5s ease-in-out forwards infinite alternate;
 }
+
