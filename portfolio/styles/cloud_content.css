@@ -30,7 +30,7 @@
     height: 30vh;
 }
 
-#content > #Job_experience
+#content > #My_experience
 {
     position: absolute;
     top:600px;
@@ -69,9 +69,8 @@
     background:none;
     opacity: 0;
     transition: all 0.6s ease-in-out;
-    
-   
 }
+
 .project > img
 {
     float: left;
@@ -83,17 +82,49 @@
     left: 7vw;
     z-index: 2;
     transition: all 1s ease-in-out;
+    box-shadow: 0px 33px 46px -12px rgba(66, 68, 90, 1);
 }
-
-
 
 
 .project > .content > p
 {
     font-size: 20px;
     float: right;
-    
     font-family: 'Roboto Slab';
+    max-width: 19vw;
+    position: absolute;
+    top: 13vh;
+    left: 1vw;
+    color: white;
+}
+.project > .content > p > a
+{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.project > .content > p >a > #github_icon
+{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    height: 7vh;
+    width: 11vh;
+    margin-left: 30%;
+    animation: pulse_moves 1s ease-in-out forwards infinite alternate;
+}
+
+.project > .content > h2
+{
+    position: relative;
+    top:-1vh;
+    left: 6vw;
+    max-width: 9vw;
+    text-align: center;
+    font-family: 'Kumar One', cursive;
+    font-size: 3vh;
+    color: white;
 }
 
 .project > .content
@@ -107,13 +138,19 @@
     height: 20vw;
     opacity: 0;
     transition: all 1s ease-in-out;
+    background-repeat: no-repeat;
 }
-
+.project > .content 
+{
+   
+}
 #paintingwall
 {
     position: absolute;
     top:15vh;
     left:30vw;
+    color: black;
+    
 }
 
 #facerecognition
@@ -156,10 +193,8 @@
     overflow: hidden;
 }
 
-
 #close_btn
 {
-    
     transition: all 1s ease-in-out;
     z-index: 3;
     position: absolute;

@@ -12,7 +12,7 @@ canvas.height = 2* window.innerHeight
 var platforms = []
 const RESPplatform = new Platform(190, 600, "About_me")
 const PROJECTSplatform = new Platform(1000, 800, "My_projects")
-const JOBplatform = new Platform(250, 1150, "Job_experience")
+const JOBplatform = new Platform(250, 1150, "My_experience")
 const EDUplatform = new Platform(1100, 1400, "My_education")
 const HOBBYplatform = new Platform(300, 1700, "My_interests")
 
@@ -210,12 +210,13 @@ myprojects.forEach((project) =>
     myprojects_contents.push(project.querySelector('.content'))
 })
 
-close_content_btns = []
+
 myprojects_contents.forEach((content) => 
 {
     console.log(content)
-    content.querySelector('img').addEventListener("click", () =>
+    content.querySelector('#close_btn').addEventListener("click", () =>
     {
+       
         $(content).css('opacity','0')
         $(content).css('visibility','hidden')
         myprojects_images.forEach((img) => 
@@ -245,7 +246,7 @@ myprojects_images.forEach((image) =>
         image.addEventListener("mouseleave", (image) => 
         {
             $(image.target).css('animation', 'none')
-            $(image.target).css('box-shadow', 'none')
+            $(image.target).css('box-shadow', '0px 33px 46px -12px rgba(66, 68, 90, 1)')
             
         })
 
