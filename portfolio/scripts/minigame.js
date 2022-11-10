@@ -386,6 +386,8 @@ function reset_computer()
     
         $(log_in_window).css('z-index', '1')
         $(log_in_window).css('opacity','0')
+
+        program.innerHTML = ''
     }
    
 }
@@ -398,11 +400,22 @@ function run_program()
         src="images/cmd_frame.png" 
         style = "position: absolute; top:1vh; left:-4px; width: 750px; 
         "/>
+
+    <img id = "close_btn" 
+        src="images/x.png" 
+        style="width:2.5vh; height:2.5vh; position:absolute; top:1vh; left:37vw;"
+
+        />
     <video 
-        style = "position: absolute; top:6vh; left:29px; width: 702px;height: 410px; "
+        style = "position: absolute; top:4vh; left:0.5vw; width: 702px;height: 410px; "
         autoplay muted plays-inline>
         <source src = "clips/cmd.mp4" type="video/mp4">
         </video>`
     program.innerHTML = video
     $(program).css('opacity','1')
+    program.querySelector("#close_btn").addEventListener("click", () => 
+    {
+        $(program).css('opacity','0')
+        program.innerHTML = ''
+    })
 }
