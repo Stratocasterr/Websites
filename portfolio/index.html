@@ -24,6 +24,7 @@
             <button type = "button" class="top_menu_button">Work</button>
             <button type = "button" class="top_menu_button">Projects</button>
         </div>
+
         <button type="button" id="open_site_menu"><img src = "images/options.png"/></button>
     </div>
 
@@ -129,7 +130,7 @@
                 <img src="images/projects/icytower.JPG"/>
                 <div class="content" style="background-image: url('images/projects/icy_background.JPG');">
                     <h2>Icy tower </h2>
-                    <p>
+                    <p style="top:11vh;">
                         This project, which I created with my college friends, is our version of popular 
                         Icy-Tower game using python's "pygame" library.
                         <br> 
@@ -145,7 +146,7 @@
                 <img src="images/projects/tatry.JPG"/>
                 <div class="content" style="background-image: url('images/projects/tatry_background.JPG');">
                     <h2>Tatry guide</h2>
-                    <p>
+                    <p style="top:11vh;">
                         Project of a navigator using the Dijkstra algorithm to find the shortest 
                         route between two selected places in the Tatra Mountains.
                         <br> 
@@ -160,12 +161,12 @@
             <div class="project" id="tnfwebsite">
                 <img src="images/projects/tnf.JPG"/>
                 <div class="content" style="background-image: url('images/projects/tnf_background.JPG');">
-                    <h2>Mountain shop website</h2>
+                    <h2 style="font-size: 2.5vh;">Mountain shop website</h2>
                     <p>
                         My first online shop website project. 
                         One can create account, adding comments or browsing products.
                         <br> 
-                        <a href="https://github.com/Stratocasterr/tatry_guide" 
+                        <a href="https://github.com/Stratocasterr/Websites/tree/main/popular%20mountain%20shop%20website" 
                             target="_blank"><img id="github_icon" src="images/github.png"/></a>
                     </p> 
                     <img id="close_btn" src="images/x.png"/>
@@ -190,9 +191,11 @@
 
         <div class="pop_content" id="My_education">
             <div class = "edu" id="studia">
+                <img id = "pw_img" src="images/polibuda.png"/>
+                <img id = "robot_img" src ="images/robot.png"/>
                 <h>education</h>
                 <h1>polibuda</h1>
-                <img src="images/kacper54.jpg"/>>
+                
                 <p>
                     Lorem ipsum dolor sit ame
                     t, consectetur adipisicing el
@@ -204,7 +207,7 @@
 
             <div class = "edu" id="selftot">
                 <h1>selftot</h1>
-                <img src="images/kacper54.jpg"/>>
+                
                 <p>
                     Lorem ipsum dolor sit ame
                     t, consectetur adipisicing el
@@ -215,31 +218,48 @@
         </div>
 
         <div class="pop_content" id="My_interests">
-            <h1>hobbbis</h1>
-            <div>
-                <h2>sport</h2>
-                <p>Lorem ipsum, dolor sit amet consectetu
-                    r adipisicing elit. Amet minu
-                    s sequi tempore dolore qu
-                    ibusdam expedita doloribus 
-                    cupiditate modi, voluptas aut.</p>
+            <div id="room">
+                <img id="room_image" src ="images/room.png"/>
+                <img class="front-clouds" id="small-interestcloud1" src ="giffs/clouds1.gif"/>
+                <img class="front-clouds" id="small-interestcloud2" src ="giffs/clouds1.gif"/>
+                <img class="front-clouds" id="small-interestcloud3" src ="giffs/clouds1.gif"/>  
             </div>
-            <div>
-                <h2>programink</h2>
-                <p>Lorem ipsum, dolor sit amet consectetu
-                    r adipisicing elit. Amet minu
-                    s sequi tempore dolore qu
-                    ibusdam expedita doloribus 
-                    cupiditate modi, voluptas aut.</p>
+               
+           
+            <div class = "my_interests" id ="programming">
+                <img id="computer_img" src="images/comp_btn.png"/>
+                <img id="loading" src="giffs/loading.gif"/>
+
+                <div id="log_in_window">
+                    <img src="images/login_background.jpg"/>
+                    <header id="username">Kacper Wolanski</header>
+                    <button type="button" id="login_btn">Log in</button>
+                </div>
+
+                <div id="desktop">
+                    <img src="images/desktop_background.jpg"/>
+                    <div id="run_program">
+                        <img id="run_program_icon" src="images/github.png"/>
+                        <br>
+                        <header>Run me!</header>
+                    </div>
+                    
+                </div>
+
+                <img  id="close_btn" src="images/buton.JPG"/>
+                <img  id="open_btn" src="images/github.png"/>
+                <div id="programming_content"></div>
             </div>
-            <div>
-                <h2>music</h2>
-                <p>Lorem ipsum, dolor sit amet consectetu
-                    r adipisicing elit. Amet minu
-                    s sequi tempore dolore qu
-                    ibusdam expedita doloribus 
-                    cupiditate modi, voluptas aut.</p>
+            
+            <div class = "my_interests" id ="music">
+                <img id="music_img" src="images/strat.png"/>
             </div>
+
+            <div class = "my_interests" id ="sport">
+                <img id="sport_img" src="images/barbell.png"/>
+            </div>
+            
+          
         </div>
         <div id = "minigame_clouds"></div>
     </div>

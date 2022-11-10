@@ -1,8 +1,5 @@
 const minigame_clouds = document.querySelector('#minigame_clouds')
 var pop_content = document.querySelectorAll('.pop_content')
-
-
-
 const canvas = document.querySelector('#minigame')
 const minigame = canvas.getContext('2d')
 
@@ -67,7 +64,7 @@ function animate()
             player.velocity.y = 0
             var collide_platform_content = document.querySelector('#' + platform.id+'')
             $(collide_platform_content).css('opacity','1')
-            $(collide_platform_content).css('height','500px')
+            $(collide_platform_content).css('min-height','500px')
 
             // collide content background clouds
             const content_background_clouds = minigame_clouds.querySelectorAll('#' + platform.id+'')
@@ -87,6 +84,12 @@ function animate()
                     if(content.id != platform.id) new_pop_content.push(content)
                 })
             new_pop_content.forEach(content => {$(content).css('opacity','0')})
+
+            // education platform staff 
+            if(platform.id == "My_education") 
+            {
+                const images = document.querySelector("#My_education").querySelectorAll(img)
+            }
         } 
     })
 
@@ -199,6 +202,9 @@ function create_minigame_clouds(platforms_cords, platforms)
     minigame_clouds.innerHTML = clouds 
 }
 
+
+// my projects cloud
+
 const myprojects = document.querySelectorAll('.project')
 const myprojects_images =[]
 const myprojects_contents = []
@@ -209,7 +215,6 @@ myprojects.forEach((project) =>
     myprojects_images.push(project.querySelector('img'))
     myprojects_contents.push(project.querySelector('.content'))
 })
-
 
 myprojects_contents.forEach((content) => 
 {
@@ -276,3 +281,113 @@ myprojects_images.forEach((image) =>
             }   
         })
 })
+
+
+// my interest cloud
+const my_interests = document.querySelector('#My_interests')
+const programming = my_interests.querySelector('#programming')
+const music = my_interests.querySelector('#music')
+const sport = my_interests.querySelector('#sport')
+
+// programming
+const comp_img = programming.querySelector('img')
+const programming_content = programming.querySelector('#programming_content')
+
+//comp staff
+const poweroff = programming.querySelector('#close_btn')
+const poweron = programming.querySelector('#open_btn')
+const log_in_window = programming.querySelector('#log_in_window')
+const desktop = programming.querySelector('#desktop')
+
+loading = programming.querySelector('#loading')
+close_allow = true
+
+comp_img.addEventListener("mouseover",(image) =>
+{
+    $(image.target).css('animation', 'none')
+    $(image.target).css('cursor','pointer')
+    $(poweroff).css('transition','all 1.8s ease-in-out')
+    $(poweron).css('transition','all 1.8s ease-in-out')
+})
+
+poweroff.addEventListener("click",() =>{reset_computer()})
+
+poweron.addEventListener("click", () =>
+{
+    close_allow = false
+    $(loading).css('opacity','1')
+    setTimeout(function() {computer() }, 1000);
+})
+
+comp_img.addEventListener("click", (image) =>
+{
+    $(poweroff).css('opacity','1')
+    $(poweron).css('opacity','1')
+
+    $(comp_img).css('cursor','default')
+    $(programming_content).css('z-index','3')
+
+    $(image.target).css('transform','scale(10)')
+    $(image.target).css('z-index','3')
+    $(image.target).css('animation', 'none')
+
+    const video = `<video 
+        style = "position: absolute; top:0; left:0; "
+        autoplay muted plays-inline>
+        <source src = "clips/cmd.mp4" type="video/mp4">
+        </video>`
+        
+    //programming_content.innerHTML = video
+
+})
+
+function computer()
+{
+    
+    $(loading).css('opacity','0')
+    
+    $(log_in_window).css('z-index', '3')
+    setTimeout(function() 
+    {
+        $(log_in_window).css('opacity', '1')
+        close_allow = true
+    }, 1000);
+
+    log_in_window.querySelector('#login_btn').addEventListener("click",() =>
+    {
+        close_allow = false
+        $(desktop).css('z-index','3')
+
+        setTimeout(function() 
+        {
+            close_allow = true
+            $(desktop).css('opacity','1') 
+            $(log_in_window).css('z-index', '1')
+        }, 3000);
+        
+        $(log_in_window).css('opacity','0')
+    })
+}
+
+function reset_computer()
+{
+    if(close_allow)
+    {
+        $(comp_img).css('transform','scale(1)')
+        $(comp_img).css('animation', 'pulse_moves 1s ease-in-out forwards infinite alternate')
+        $(comp_img).css('cursor','default')
+    
+        $(poweroff).css('transition','all 0.1s ease-in-out')
+        $(poweroff).css('opacity','0')
+    
+        $(poweron).css('transition','all 0.1s ease-in-out')
+        $(poweron).css('opacity','0')
+    
+        $(desktop).css('z-index','1')
+        $(desktop).css('opacity','0')
+    
+        $(log_in_window).css('z-index', '1')
+        $(log_in_window).css('opacity','0')
+    }
+   
+}
