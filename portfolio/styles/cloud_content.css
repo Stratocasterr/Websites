@@ -57,6 +57,27 @@
     overflow: hidden;
 }
 
+#My_education >#studia >img
+{
+    position: absolute;
+}
+
+#pw_img
+{
+    top: 8vh;
+    left: 21vw;
+    width: 18vw;
+    height: 21vh;
+}
+
+#robot_img
+{
+    top: 19vh;
+    left: 0vw;
+    width: 8vw;
+    height: 10vh;
+    animation: move_left_right 10s ease-in-out forwards infinite alternate;
+}
 
 #content > #My_projects
 {
@@ -181,18 +202,6 @@
     left:5vw;
 }
 
-#content > #My_interests
-{
-    position: absolute;
-    top:1200px;
-    left:400px;
-    background:none;
-    opacity: 0;
-    transition: all 0.6s ease-in-out;
-    height: 0;
-    overflow: hidden;
-}
-
 #close_btn
 {
     transition: all 1s ease-in-out;
@@ -210,6 +219,239 @@
     transform: scale(1.3);
 }
 
+
+#content > #My_interests
+{
+    position: relative;
+    top: 95vh;
+    left: -3vw;
+    background:none;
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+    height: 0;
+    
+}
+
+#My_interests > #room
+{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#room > #room_image
+{
+    width: 69vw;
+    height: 87vh;
+}
+
+#room > #small-interestcloud1
+{
+    top: 38vh;
+    left: 48vw;
+}
+
+#room > #small-interestcloud2
+{
+    top: 21vh;
+    left: 4vw;
+}
+
+#room > #small-interestcloud3
+{
+    top: 66vh;
+    left: 30vw;
+}
+
+#My_interest > #programming
+{
+    position: relative;
+}
+
+#programming > #close_btn
+{
+    top: 62.5vh;
+    left: 47.3vw;
+    opacity: 0;
+    width: 3.5vw;
+    height: 3.5vw; 
+    transition: all 1.8s ease-in-out;
+}
+
+#programming > #open_btn
+{
+    position: absolute;
+    top: 62.5vh;
+    left: 44.3vw;
+    opacity: 0;
+    width: 3.5vw;
+    height: 3.5vw; 
+    transition: all 1.8s ease-in-out;
+    z-index: 3;
+}
+
+#open_btn:hover
+{
+    cursor: pointer;
+    transform: scale(1.3);
+}
+
+.my_interests > #computer_img
+{
+    position: absolute;
+    top: 37vh;
+    left: 26vw;
+    width: 111px;
+    height: 98px;
+    scale: 1;
+    transition: all 1s ease-in-out;
+    animation: pulse_moves 1s ease-in-out forwards infinite alternate;
+    z-index: 2;
+}
+
+.my_interests > #loading
+{
+    position: relative;
+    top: -39vh;
+    left: 25vw;
+    z-index: 3;
+    width: 5vw;
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+
+#log_in_window
+{
+    position: absolute;
+    top: -1.5vh;
+    left: 4vw;
+    
+    width: 905px;
+    height: 592px;
+    
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    
+}
+
+#log_in_window > img
+{
+    
+}
+
+#log_in_window > #username
+{
+    position: absolute;
+    top: 38vh;
+    left: 16vw;
+    color: white;
+    font-size: 40px;
+}
+
+#log_in_window > button
+{
+    position: absolute;
+    top: 46vh;
+    left: 21vw;
+    border: 1px solid white;
+    border-radius: 10px;
+    width: 90px;
+    height: 25px;
+    background: none;
+    color: white;
+    
+}
+
+#log_in_window > button:hover
+{
+    cursor: pointer;
+    background-color: black;
+}
+
+#desktop
+{
+    position: absolute;
+    top: -1.5vh;
+    left: 4vw;
+    width: 905px;
+    height: 645px;
+    overflow: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    z-index: 0;
+}
+
+
+#desktop >img
+{
+    width: 1000px;
+    height: 624px;
+    position: absolute;
+    top: -5vh;
+}
+
+#desktop > #run_program
+{
+    position: absolute;
+    top: 9.5vh;
+    left: 1vw;
+    z-index: 3;
+    text-align: center;
+    animation: pulse_moves 1s ease-in-out forwards infinite alternate;
+}
+
+#desktop >  #run_program >#run_program_icon
+{
+    width: 44px;
+    height: 44px;
+}
+
+#desktop >  #run_program > header
+{
+    color: white;
+    text-shadow: 2px 2px black;
+}
+
+
+#programming_content
+{
+    width: 700px;
+    position: absolute;
+    height: 100px;
+    top: 7vh;
+    left: 8vw;
+    
+}
+
+
+.my_interests > #music_img
+{
+    position: absolute;
+    top: 49vh;
+    left: 46vw;
+    width: 120px;
+    height: 120px;
+    transform: rotate(-37deg);
+    animation: pulse_moves 1s ease-in-out forwards infinite alternate;
+    z-index: 2;
+}
+
+
+
+.my_interests > #sport_img
+{
+    position: absolute;
+    top: 57vh;
+    left: 33vw;
+    width: 100px;
+    animation: pulse_moves 1s ease-in-out forwards infinite alternate;
+    z-index: 2;
+}
+
+
+
 @keyframes move_up_down
 {
     0%
@@ -225,4 +467,17 @@
         transform: translateY(-5%);
     }
 
+}
+
+@keyframes move_left_right
+{
+    0%
+    {
+        transform: translateX(0);
+    }
+   
+    100%
+    {
+        transform: translateX(250%);
+    }
 }
