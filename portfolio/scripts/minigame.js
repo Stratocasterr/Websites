@@ -298,6 +298,7 @@ const poweroff = programming.querySelector('#close_btn')
 const poweron = programming.querySelector('#open_btn')
 const log_in_window = programming.querySelector('#log_in_window')
 const desktop = programming.querySelector('#desktop')
+const run_program_icon = desktop.querySelector('#run_program').querySelector('#run_program_icon')
 
 loading = programming.querySelector('#loading')
 close_allow = true
@@ -331,13 +332,9 @@ comp_img.addEventListener("click", (image) =>
     $(image.target).css('z-index','3')
     $(image.target).css('animation', 'none')
 
-    const video = `<video 
-        style = "position: absolute; top:0; left:0; "
-        autoplay muted plays-inline>
-        <source src = "clips/cmd.mp4" type="video/mp4">
-        </video>`
+   
         
-    //programming_content.innerHTML = video
+    
 
 })
 
@@ -363,6 +360,7 @@ function computer()
             close_allow = true
             $(desktop).css('opacity','1') 
             $(log_in_window).css('z-index', '1')
+            run_program_icon.addEventListener("click",() =>{run_program()})
         }, 3000);
         
         $(log_in_window).css('opacity','0')
@@ -390,4 +388,21 @@ function reset_computer()
         $(log_in_window).css('opacity','0')
     }
    
+}
+
+function run_program()
+{
+
+    const video = `
+    <img 
+        src="images/cmd_frame.png" 
+        style = "position: absolute; top:1vh; left:-4px; width: 750px; 
+        "/>
+    <video 
+        style = "position: absolute; top:6vh; left:29px; width: 702px;height: 410px; "
+        autoplay muted plays-inline>
+        <source src = "clips/cmd.mp4" type="video/mp4">
+        </video>`
+    program.innerHTML = video
+    $(program).css('opacity','1')
 }

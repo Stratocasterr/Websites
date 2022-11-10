@@ -270,7 +270,7 @@
 
 #programming > #close_btn
 {
-    top: 62.5vh;
+    top: 60.5vh;
     left: 47.3vw;
     opacity: 0;
     width: 3.5vw;
@@ -281,11 +281,11 @@
 #programming > #open_btn
 {
     position: absolute;
-    top: 62.5vh;
-    left: 44.3vw;
+    top: 60vh;
+    left: 43.5vw;
     opacity: 0;
-    width: 3.5vw;
-    height: 3.5vw; 
+    width: 4vw;
+    height: 4vw; 
     transition: all 1.8s ease-in-out;
     z-index: 3;
 }
@@ -324,7 +324,7 @@
 #log_in_window
 {
     position: absolute;
-    top: -1.5vh;
+    top: -3vh;
     left: 4vw;
     
     width: 905px;
@@ -373,7 +373,7 @@
 #desktop
 {
     position: absolute;
-    top: -1.5vh;
+    top: -3vh;
     left: 4vw;
     width: 905px;
     height: 645px;
@@ -402,10 +402,15 @@
     animation: pulse_moves 1s ease-in-out forwards infinite alternate;
 }
 
-#desktop >  #run_program >#run_program_icon
+#desktop >  #run_program > #run_program_icon
 {
     width: 44px;
     height: 44px;
+}
+
+#desktop >  #run_program > #run_program_icon:hover
+{
+    cursor: pointer;
 }
 
 #desktop >  #run_program > header
@@ -414,17 +419,17 @@
     text-shadow: 2px 2px black;
 }
 
-
-#programming_content
+#program
 {
-    width: 700px;
+    width: 900px;
     position: absolute;
-    height: 100px;
-    top: 7vh;
-    left: 8vw;
-    
+    height: 374px;
+    top: 12vh;
+    left: 6.5vw;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 1s ease-in-out;
 }
-
 
 .my_interests > #music_img
 {
