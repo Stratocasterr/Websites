@@ -63,18 +63,7 @@
     animation: pulse_moves 1s ease-in-out forwards infinite alternate;
 }
 
-@keyframes pulse_moves
-{
-    0%
-    {
-        scale: 1;
-    }
 
-    100%
-    {
-        scale:1.2;
-    }
-}
 
 #instruction > #instruction_text
 {

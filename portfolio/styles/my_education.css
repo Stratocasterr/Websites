@@ -1,0 +1,89 @@
+#buildings
+{
+    position: absolute;
+    top: 600px;
+    left: 900px;
+    opacity: 0;
+    z-index: -3;
+    transition: opacity 1s ease-in-out;
+}
+
+.building_img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+}
+
+#mariot
+{
+    top: -249px;
+    left: 199px;
+}
+
+#palac          
+{
+    top: -401px;
+    left: 543px;
+}
+
+#polibuda
+{
+    top: -30px;
+    left: 334px;
+    width: 300px;
+}
+
+#spire
+{
+    top: -340px;
+    left: 63px;
+}
+
+#syrenka
+{
+    top: -3px;
+    left: 226px;
+    width: 92px;
+}
+
+#toilets
+{
+    top: 229px;
+    left: 633px;
+    width: 300px;
+}
+
+#content > #My_education
+{
+    position: absolute;
+    top: 600px;
+    left: 900px;
+    opacity: 0;
+    height: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+
+#My_education > header
+{
+    position: absolute;
+    top: 261px;
+    left: 203px;
+    font-size: 35px;
+    width: 560px;
+    font-family: 'Saira Stencil One', cursive;
+    color: turquoise;
+    text-shadow: 1px 2px black;
+}
+
+#My_education > p
+{
+    position: absolute;
+    top: 320px;
+    left: 138px;
+    font-size: 20px;
+    width: 700px;
+    text-align: center;
+}

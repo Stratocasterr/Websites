@@ -1,0 +1,90 @@
+
+@keyframes move_up_down
+{
+    0%
+    {
+        transform: translateY(0);
+    }
+    50%
+    {
+        transform: translateY(5%);
+    }
+    100%
+    {
+        transform: translateY(-5%);
+    }
+
+}
+
+@keyframes move_left_right
+{
+    0%
+    {
+        transform: translateX(0);
+    }
+   
+    100%
+    {
+        transform: translateX(250%);
+    }
+}
+
+@keyframes pulse_moves
+{
+    0%
+    {
+        scale: 1;
+    }
+
+    100%
+    {
+        scale:1.2;
+    }
+}
+
+@keyframes left-to-right
+{
+    100%
+    {
+        transform: translateX(1200%);
+    }
+}
+
+@keyframes right-to-left
+{
+    100%
+    {
+        transform: translateX(-830%);
+    }
+}
+
+@keyframes ball_effect
+{
+    0%
+    {
+        transform: translateY(0);
+    }
+
+    20%
+    {
+        transform: translateY(8%);
+    }
+
+    40%
+    {
+        transform: translateY(-8%);
+    }
+    60%
+    {
+        transform: translateY(3%);
+    }
+    80%
+    {
+        transform: translateY(-3%);
+    }
+    100%
+    {
+        transform: translateY(0);
+    }
+
+}

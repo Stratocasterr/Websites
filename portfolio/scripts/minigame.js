@@ -19,6 +19,10 @@ platforms.push(JOBplatform)
 platforms.push(EDUplatform)
 platforms.push(HOBBYplatform)
 
+// edu platform background
+show_town = false
+const buildings = document.querySelector('#buildings')
+
 var gravity = 0.5
 const player = new Player()
 const keys =
@@ -38,6 +42,10 @@ platforms.forEach(platform =>
 create_minigame_clouds(platforms_cords, platforms)
 animate()
 
+
+
+
+// minigame 
 function animate()
 {
     requestAnimationFrame(animate)
@@ -85,14 +93,15 @@ function animate()
                 })
             new_pop_content.forEach(content => {$(content).css('opacity','0')})
 
-            // education platform staff 
-            if(platform.id == "My_education") 
-            {
-                const images = document.querySelector("#My_education").querySelectorAll(img)
-            }
+            // my edu cloud
+            if(platform.id == "My_education") show_town = true
+            else show_town = false   
+            
+           
         } 
     })
 
+   
     if(!collision) 
     {
         // hide background
@@ -110,7 +119,22 @@ function animate()
 
         // show clouds headers
         headers.forEach(header => {$(header).css('opacity','0.3')})
+        show_town = false  
     }
+
+    if(show_town) 
+    {
+        $(buildings).css('opacity','1')
+        $(buildings).css('z-index','-1')
+    }
+
+    else
+    {
+        $(buildings).css('opacity','0')
+        $(buildings).css('z-index','-3')
+    }
+
+    
 }
 
 window.addEventListener('keydown', ({ keyCode }) => 
@@ -203,219 +227,6 @@ function create_minigame_clouds(platforms_cords, platforms)
 }
 
 
-// my projects cloud
-
-const myprojects = document.querySelectorAll('.project')
-const myprojects_images =[]
-const myprojects_contents = []
-able_to_see_project = true
-
-myprojects.forEach((project) => 
-{
-    myprojects_images.push(project.querySelector('img'))
-    myprojects_contents.push(project.querySelector('.content'))
-})
-
-myprojects_contents.forEach((content) => 
-{
-    console.log(content)
-    content.querySelector('#close_btn').addEventListener("click", () =>
-    {
-       
-        $(content).css('opacity','0')
-        $(content).css('visibility','hidden')
-        myprojects_images.forEach((img) => 
-        {
-            $(img).css('opacity','1')
-            $(img).css('transform', 'scale(1)')
-            $(img).css('cursor', 'default')
-        })
-        able_to_see_project = true
-    })
-})
-
-myprojects_images.forEach((image) => 
-{
-    //$(image).css('animation', 'move_up_down 5s ease-in-out forwards infinite alternate')
-    
-        image.addEventListener("mouseover", (image) => 
-        {
-            if(able_to_see_project)
-            {       
-                $(image.target).css('animation', 'pulse_moves 1s ease-in-out forwards infinite alternate')
-                $(image.target).css('cursor', 'pointer')
-                $(image.target).css('box-shadow', '0px 0px 67px -12px rgba(20, 20, 20, 1)')
-            }
-        })
-
-        image.addEventListener("mouseleave", (image) => 
-        {
-            $(image.target).css('animation', 'none')
-            $(image.target).css('box-shadow', '0px 33px 46px -12px rgba(66, 68, 90, 1)')
-            
-        })
-
-        image.addEventListener("click", (image) => 
-        {
-            if(able_to_see_project)
-            {
-                able_to_see_project = false
-                image_opacity = window.getComputedStyle(image.target).getPropertyValue("opacity");
-                if(image_opacity)
-                {
-                    $(image.target).css('transform', 'scale(3)')
-                    $(image.target).css('box-shadow', 'none')
-                    $(image.target).css('opacity', '0')
-                    img_index = myprojects_images.indexOf(image.target)
-                    myprojects_contents.forEach((content) => 
-                    {
-                        console.log(img_index, myprojects_contents.indexOf(content))
-                        if( img_index == myprojects_contents.indexOf(content)) 
-                        {
-                            $(content).css('opacity', '1')
-                            $(content).css('z-index', '3')
-                            $(content).css('visibility','visible')
-                        }  
-                    })
-                }
-            }   
-        })
-})
 
 
-// my interest cloud
-const my_interests = document.querySelector('#My_interests')
-const programming = my_interests.querySelector('#programming')
-const music = my_interests.querySelector('#music')
-const sport = my_interests.querySelector('#sport')
 
-// programming
-const comp_img = programming.querySelector('img')
-const programming_content = programming.querySelector('#programming_content')
-
-//comp staff
-const poweroff = programming.querySelector('#close_btn')
-const poweron = programming.querySelector('#open_btn')
-const log_in_window = programming.querySelector('#log_in_window')
-const desktop = programming.querySelector('#desktop')
-const run_program_icon = desktop.querySelector('#run_program').querySelector('#run_program_icon')
-
-loading = programming.querySelector('#loading')
-close_allow = true
-
-comp_img.addEventListener("mouseover",(image) =>
-{
-    $(image.target).css('animation', 'none')
-    $(image.target).css('cursor','pointer')
-    $(poweroff).css('transition','all 1.8s ease-in-out')
-    $(poweron).css('transition','all 1.8s ease-in-out')
-})
-
-poweroff.addEventListener("click",() =>{reset_computer()})
-
-poweron.addEventListener("click", () =>
-{
-    close_allow = false
-    $(loading).css('opacity','1')
-    setTimeout(function() {computer() }, 1000);
-})
-
-comp_img.addEventListener("click", (image) =>
-{
-    $(poweroff).css('opacity','1')
-    $(poweron).css('opacity','1')
-
-    $(comp_img).css('cursor','default')
-    $(programming_content).css('z-index','3')
-
-    $(image.target).css('transform','scale(10)')
-    $(image.target).css('z-index','3')
-    $(image.target).css('animation', 'none')
-
-   
-        
-    
-
-})
-
-function computer()
-{
-    
-    $(loading).css('opacity','0')
-    
-    $(log_in_window).css('z-index', '3')
-    setTimeout(function() 
-    {
-        $(log_in_window).css('opacity', '1')
-        close_allow = true
-    }, 1000);
-
-    log_in_window.querySelector('#login_btn').addEventListener("click",() =>
-    {
-        close_allow = false
-        $(desktop).css('z-index','3')
-
-        setTimeout(function() 
-        {
-            close_allow = true
-            $(desktop).css('opacity','1') 
-            $(log_in_window).css('z-index', '1')
-            run_program_icon.addEventListener("click",() =>{run_program()})
-        }, 3000);
-        
-        $(log_in_window).css('opacity','0')
-    })
-}
-
-function reset_computer()
-{
-    if(close_allow)
-    {
-        $(comp_img).css('transform','scale(1)')
-        $(comp_img).css('animation', 'pulse_moves 1s ease-in-out forwards infinite alternate')
-        $(comp_img).css('cursor','default')
-    
-        $(poweroff).css('transition','all 0.1s ease-in-out')
-        $(poweroff).css('opacity','0')
-    
-        $(poweron).css('transition','all 0.1s ease-in-out')
-        $(poweron).css('opacity','0')
-    
-        $(desktop).css('z-index','1')
-        $(desktop).css('opacity','0')
-    
-        $(log_in_window).css('z-index', '1')
-        $(log_in_window).css('opacity','0')
-
-        program.innerHTML = ''
-    }
-   
-}
-
-function run_program()
-{
-
-    const video = `
-    <img 
-        src="images/cmd_frame.png" 
-        style = "position: absolute; top:1vh; left:-4px; width: 750px; 
-        "/>
-
-    <img id = "close_btn" 
-        src="images/x.png" 
-        style="width:2.5vh; height:2.5vh; position:absolute; top:1vh; left:37vw;"
-
-        />
-    <video 
-        style = "position: absolute; top:4vh; left:0.5vw; width: 702px;height: 410px; "
-        autoplay muted plays-inline>
-        <source src = "clips/cmd.mp4" type="video/mp4">
-        </video>`
-    program.innerHTML = video
-    $(program).css('opacity','1')
-    program.querySelector("#close_btn").addEventListener("click", () => 
-    {
-        $(program).css('opacity','0')
-        program.innerHTML = ''
-    })
-}

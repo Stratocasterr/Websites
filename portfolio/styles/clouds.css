@@ -109,13 +109,7 @@
     animation: left-to-right 40s ease-in forwards infinite alternate;
 }
 
-@keyframes left-to-right
-{
-    100%
-    {
-        transform: translateX(1200%);
-    }
-}
+
 
 
 /*R*/
@@ -138,14 +132,6 @@
 }
 
 
-@keyframes right-to-left
-{
-    100%
-    {
-        transform: translateX(-830%);
-    }
-}
-
 
 #minigame_clouds
 {
@@ -155,33 +141,3 @@
     left:-100px;  
 }
 
-@keyframes ball_effect
-{
-    0%
-    {
-        transform: translateY(0);
-    }
-
-    20%
-    {
-        transform: translateY(8%);
-    }
-
-    40%
-    {
-        transform: translateY(-8%);
-    }
-    60%
-    {
-        transform: translateY(3%);
-    }
-    80%
-    {
-        transform: translateY(-3%);
-    }
-    100%
-    {
-        transform: translateY(0);
-    }
-
-}

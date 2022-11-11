@@ -4,11 +4,15 @@
 	<meta charset="utf-8">
 	<title>Kacper Wolanski</title>
 	<meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="styles/animations.css">
 	<link rel="stylesheet" href="styles/top_menu.css">
     <link rel="stylesheet" href="styles/huge_name.css">
     <link rel="stylesheet" href="styles/clouds.css">
     <link rel="stylesheet" href="styles/minigame.css">
     <link rel="stylesheet" href="styles/cloud_content.css">
+    <link rel="stylesheet" href="styles/my_interest.css">
+    <link rel="stylesheet" href="styles/my_education.css">
+    <link rel="stylesheet" href="styles/my_projects.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -189,32 +193,26 @@
             </div>
         </div>
 
+
+        <div id="buildings">
+            <img class="building_img" id="mariot" src="images/buildings/mariot.png"/>
+            <img class="building_img" id="palac" src="images/buildings/palac.png"/>
+            <img class="building_img" id="polibuda" src="images/buildings/polibuda.png"/>
+            <img class="building_img" id="spire" src="images/buildings/spire.png"/>
+            <img class="building_img" id="syrenka" src="images/buildings/syrenka.png"/>
+            <img class="building_img" id="toilets" src="images/buildings/toilets.png"/>
+       </div>
+
+
         <div class="pop_content" id="My_education">
-            <div class = "edu" id="studia">
-                <img id = "pw_img" src="images/polibuda.png"/>
-                <img id = "robot_img" src ="images/robot.png"/>
-                <h>education</h>
-                <h1>polibuda</h1>
-                
-                <p>
-                    Lorem ipsum dolor sit ame
-                    t, consectetur adipisicing el
-                    it. Eum, vero rem quia iure cupid
-                    itate excepturi sapie
-                    nte dicta ipsum nihil fugit.
-                </p>
-            </div>
-
-            <div class = "edu" id="selftot">
-                <h1>selftot</h1>
-                
-                <p>
-                    Lorem ipsum dolor sit ame
-                    t, consectetur adipisicing el
-                    it. Eum, feefef
-                </p>
-            </div>
-
+            <header> Warsaw University of Technology </header>
+            <p>
+                I am automatic and applied robotics 4th year student
+                and have good memories of all my time in college (except for the exam sessions).
+                My favourites classes were these associated with robotics and algorithmics, but all labs exercises were we 
+                were able to "touch" science with our own hands, I was founding very interested also.
+                Soon, I will receive bachelor degree diploma and finally become engineer.
+            </p>
         </div>
 
         <div class="pop_content" id="My_interests">
@@ -238,11 +236,30 @@
 
                 <div id="desktop">
                     <img src="images/desktop_background.png"/>
-                    <div id="run_program">
-                        <img id="run_program_icon" src="images/github.png"/>
+                    <div id="run_program1">
+                        <img id="run_program1" class="run_program_icon" src="images/cmd_icon.png"/>
                         <br>
-                        <header>Run me!</header>
+                        <header class="run_program_header">Run me!</header>
                     </div>
+                  
+                    <div id="run_programJS">
+                        <img id="run_programJS" class="run_program_icon" src="images/js_icon.png"/>
+                        <br>
+                        <header class="run_program_header">Run me!</header>
+                    </div>
+
+                    <div id="run_programPY">
+                        <img id="run_programPY" class="run_program_icon" src="images/python_icon.png"/>
+                        <br>
+                        <header class="run_program_header">Run me!</header>
+                    </div>
+
+                    <div id="run_programVS">
+                        <img id="run_programVS" class="run_program_icon" src="images/vscode_icon.png"/>
+                        <br>
+                        <header class="run_program_header">Run me!</header>
+                    </div>
+
 
                     <div id="program"></div>
                     
@@ -290,10 +307,16 @@
     
     
     <script src="scripts/jquery.js"></script>
+
 	<script src = "scripts/top_menu.js"></script>
     <script src = "scripts/huge_name.js"></script>
+
     <script src = "scripts/Player.js"></script>
     <script src = "scripts/Platform.js"></script>
+
     <script src = "scripts/minigame.js"></script>
+    <script src = "scripts/my_projects_cloud.js"></script>
+    <script src = "scripts/my_interest_cloud.js"></script>
+    <script src = "scripts/my_education.js"></script>
 </body>
 </html>
