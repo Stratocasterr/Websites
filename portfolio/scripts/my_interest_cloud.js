@@ -130,7 +130,6 @@ function computer()
 
 function run_program(video_src)
 {
-    console.log(video_src)
     const video = `
     <img 
         src="images/cmd_frame.png" 
@@ -186,9 +185,8 @@ function reset_computer()
 }
 
 
-function yourFunction(){
-    console.log()
-
+function yourFunction()
+{
     setTimeout(yourFunction, 1000);
 }
 

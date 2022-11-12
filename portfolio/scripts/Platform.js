@@ -6,7 +6,6 @@ class Platform
         {
             x:x,
             y:y
-            
         }
         this.width = canvas.width / 3
         this.height = canvas.height / 20

@@ -1,0 +1,14 @@
+#contact_me
+{
+    position: absolute;
+    top:3133px;
+    left: -6px;
+    margin: none;
+}
+
+#contact_me > .block
+{
+    position: absolute;
+    
+    z-index:-1;
+}

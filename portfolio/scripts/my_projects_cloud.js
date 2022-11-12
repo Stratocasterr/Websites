@@ -13,7 +13,6 @@ myprojects.forEach((project) =>
 
 myprojects_contents.forEach((content) => 
 {
-    console.log(content)
     content.querySelector('#close_btn').addEventListener("click", () =>
     {
        
@@ -64,7 +63,7 @@ myprojects_images.forEach((image) =>
                     img_index = myprojects_images.indexOf(image.target)
                     myprojects_contents.forEach((content) => 
                     {
-                        console.log(img_index, myprojects_contents.indexOf(content))
+
                         if( img_index == myprojects_contents.indexOf(content)) 
                         {
                             $(content).css('opacity', '1')

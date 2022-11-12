@@ -4,7 +4,7 @@ const canvas = document.querySelector('#minigame')
 const minigame = canvas.getContext('2d')
 
 canvas.width =  window.innerWidth
-canvas.height = 2* window.innerHeight
+canvas.height = 2.2 * window.innerHeight
 
 var platforms = []
 const RESPplatform = new Platform(190, 600, "About_me")
@@ -225,8 +225,6 @@ function create_minigame_clouds(platforms_cords, platforms)
     }
     minigame_clouds.innerHTML = clouds 
 }
-
-
 
 
 

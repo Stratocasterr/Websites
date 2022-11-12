@@ -17,7 +17,7 @@
 {
    
     left: -1500px;
-    transition: all 0.7s ease-in-out;
+    transition: all 0.4s ease-in-out;
     top:0;
     width: 80%;
     font-family: 'Bungee Shade', cursive; 
@@ -26,10 +26,10 @@
 #huge_name > #surname
 {
    
-    left: 110vw;
-    transition: all 0.7s ease-in-out;
-    top: 34vh;
+    left: 1950px;
+    transition: all 0.4s ease-in-out;
+    top: 293px;
     width: 80%;
     float: right;
-    font-family: 'Bungee Shade', cursive; 
+    font-family: 'Bungee Shade', cursive;
 }
