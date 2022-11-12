@@ -19,7 +19,7 @@ function create_ground()
     const front_blocks = block_rows( 0, 1, block_height, block_width, front_ground_block_img)
     const middle_blocks = block_rows(block_height, 2, block_height, block_width, [middle_ground_block_img1, middle_ground_block_img2])
     const stone_blocks = block_rows(3* block_height, 2, block_height, block_width, [stone_ground_block_img1, stone_ground_block_img2])
-    const under_blocks = block_rows(5* block_height, 10, block_height, block_width, underground_block_img)
+    const under_blocks = block_rows(5* block_height, 25, block_height, block_width, underground_block_img)
 
     contact_me.innerHTML = front_blocks + middle_blocks + stone_blocks + under_blocks
 }
