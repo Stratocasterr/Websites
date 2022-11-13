@@ -8,7 +8,7 @@ letters.forEach((letter) =>
 {
     letter.addEventListener("mouseover", (letter) =>
     {
-        
+        $(letter.target).css('cursor','default')
         $(letter.target).css('animation','ball_effect 1s ease-in-out forwards 1 alternate')
 
     })
@@ -45,9 +45,8 @@ var oldScrollY = window.scrollY;
 
 window.onscroll = function() 
 {
-
-    var huge_name_x_pos = huge_name.getBoundingClientRect().left;
-    var huge_surname_x_pos = huge_surname.getBoundingClientRect().left;
+    
+   
     if (oldScrollY > 10)
     {
 
@@ -80,11 +79,7 @@ window.onscroll = function()
             $(minigame_instru).css('opacity','1')
         }        
 
-        if(window.scrollY > 3000)    
-        {
-            
-
-        }                 
+                
     }
     oldScrollY = window.scrollY;
 }

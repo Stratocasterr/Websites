@@ -1,14 +1,43 @@
 #contact_me
 {
     position: absolute;
-    top:3133px;
+    top: 3133px;
     left: -10px;
-    margin: none;
+    width: 105%;
 }
 
 #contact_me > .block
 {
     position: absolute;
-    
     z-index:-1;
+}
+
+#contact_me > .tree
+{
+    position: absolute;
+    
+}
+
+
+
+#contact_me > header
+{
+    position: fixed;
+    top: 50px;
+    left: -250px;
+    color: white;
+    font-family: SF Pro Text,SF Pro Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size: 82px;
+    width: 100%;
+    text-align: center;
+    transition: all 0.2s ease-in-out ;
+    opacity: 0;
+}
+
+#contact_me > #contact_img
+{
+    position: fixed;
+    top: 400px;
+    left: 570px;
+    opacity: 0;
 }
