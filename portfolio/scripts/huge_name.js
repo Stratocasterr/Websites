@@ -1,5 +1,29 @@
+// huge name
 const huge_name = document.querySelector('#name')
 const huge_surname = document.querySelector('#surname')
+const letters = document.querySelector('#huge_name').querySelectorAll('p')
+
+console.log(letters)
+letters.forEach((letter) => 
+{
+    letter.addEventListener("mouseover", (letter) =>
+    {
+        
+        $(letter.target).css('animation','ball_effect 1s ease-in-out forwards 1 alternate')
+
+    })
+    letter.addEventListener("mouseleave", (letter) =>
+    {
+        
+        $(letter.target).css('animation','small_ball_effect 1s ease-in-out forwards 1 alternate')
+       
+    })
+    
+})
+
+
+
+
 
 const scrolling_gif = document.querySelector('#scroll_down').querySelector('img')
 
@@ -24,8 +48,6 @@ window.onscroll = function()
 
     var huge_name_x_pos = huge_name.getBoundingClientRect().left;
     var huge_surname_x_pos = huge_surname.getBoundingClientRect().left;
-    //console.log(start_minigame)
-    //console.log(window.scrollY)
     if (oldScrollY > 10)
     {
 
@@ -60,15 +82,12 @@ window.onscroll = function()
 
         if(window.scrollY > 3000)    
         {
-            //console.log(1)
+            
 
         }                 
     }
-    
     oldScrollY = window.scrollY;
-    
 }
-
 
 function animate_top_clouds()
 {
@@ -76,16 +95,4 @@ function animate_top_clouds()
     const cl = top_clouds.querySelector('#small-top_cloud1')
     const cr1 = top_clouds.querySelector('#small-top_cloud2')
     const cr2 = top_clouds.querySelector('#middle-top_clouds')
-
-
 }
-function lala()
-{
-    setTimeout(function()
-    {
-
-        lala()
-    }, 2000)
-}
-
-//lala()

@@ -88,3 +88,31 @@
     }
 
 }
+
+@keyframes small_ball_effect
+{
+    0%
+    {
+        transform: translateY(8%);
+    }
+
+    25%
+    {
+        transform: translateY(-8%);
+    }
+
+    50%
+    {
+        transform: translateY(3%);
+    }
+    75%
+    {
+        transform: translateY(-3%);
+    }
+
+    100%
+    {
+        transform: translateY(0);
+    }
+
+}

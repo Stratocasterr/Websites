@@ -1,7 +1,7 @@
 #huge_name
 {
     position: relative;
-    top:3vw;
+    top:10vw;
     color: black;
 }
 
@@ -15,21 +15,39 @@
 
 #huge_name > #name
 {
-   
     left: -1500px;
-    transition: all 0.4s ease-in-out;
     top:0;
     width: 80%;
     font-family: 'Bungee Shade', cursive; 
+    z-index: 1;
+    transition: all 0.4s ease-in-out;
 }
+
+.letter
+{
+    float: left;
+    
+    max-height: 16vw; 
+    overflow: hidden;
+}
+
+.letter > p
+{
+    position: relative;
+    top: -380px;
+    z-index: 1;
+}
+
+
 
 #huge_name > #surname
 {
    
     left: 2050px;
     transition: all 0.4s ease-in-out;
-    top: 293px;
-    width: 80%;
+    top: 320px;
+    width: 90%;
     float: right;
+    z-index: 1;
     font-family: 'Bungee Shade', cursive;
 }
