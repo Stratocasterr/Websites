@@ -1,10 +1,10 @@
-#My interactive portfolio website
+# My interactive portfolio website.
 
 This is a project of my first interactive portfolio website.
 
 ![image](https://user-images.githubusercontent.com/101999487/206588166-5d822da9-c6c1-4bbf-b055-f4f91734ba24.png)
 
-##Here You can take a look on my portfolio website project. 
+## Here You can take a look on my portfolio website project. 
 
 I put here a minigame, where You can jumping on content clouds and get to know me better. This project is not finished yet. 
 
